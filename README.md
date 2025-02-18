@@ -1,61 +1,88 @@
-# NextJS with Firebase Auth App Router Template
+# Local Tours
+Our Local Tours app helps travelers easily manage their tours and locations, keeping track of each tour's and location's details and adding them to organizing them into personalized itineraries. Users can add tours to their itinerary, view and edit their plans, and track completed tours for reflection on their journey. The app provides a seamless, efficient way to organize travel, making it easier for users to manage multiple tours in one place.
 
-[See Live Demo of this Template](https://drt-next-js-template-app-router.netlify.app/)
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
+## About the User 
+Our app is designed for travelers who love exploring new destinations and want a better way to organize their tours. Whether they are frequent adventurers or casual vacationers, users need a simple, efficient way to manage their itineraries, keep track of locations, and log completed tours. They value convenience, easy access to their plans, and the ability to edit and reflect on their experiences—all in one place.
+
+## Features 
+- **User Authentication**: Secure sign-in and sign-out using Firebase authentication.
+- **Profile Management**: Users can create their profiles with personal information.
+- **Tour and Location Management**: Create, read, update, and delete locations and tours with detailed information.
+- **Itinerary Management**: Add tours to itinerary and manage existing tour schedule
+- **Completed Tours**: Mark itinerary tours as complete and display completed tours in user profile
+- **Protected Routes**: Ensure users complete their profiles before accessing other features.
+
 ## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+- Clone backend repo @ https://github.com/E27-29-SWE-LocalTours/swe-localtours-be
+- From your terminal, cd into the folder where you cloned the backend repo, then run the following commands:
+  1. python manage.py makemigrations
+  2. python manage.py migrate
+  3. python manage.py runserver
+- This will start the backend dev server, which will run on localhost:8000
+ 
+- Clone this repo
+- cd into the folder where you cloned this repo
+- Run the following commands:
+  1. npm run prepare
+  2. npm run dev
+- This will start the front end dev server, which will run on localhost:3000
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+## Video Walkthrough of APP NAME 
+Coming soon!
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. Run `npx eslint . --ext .js,.jsx`
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://github.com/user-attachments/assets/deae25f0-01d5-44b4-be60-7297b0f6f0ef">
+## Relevant Links
+- [Wireframes](https://www.figma.com/design/9nYJYdxB3vPJdmOfPkuGhn/E27-29-SWE-Local-Tours?node-id=0-1&t=SCZkBzWEtxzEv9VC-1)
+- [Project Board](https://github.com/orgs/E27-29-SWE-LocalTours/projects/1)
+- [ERD](https://dbdiagram.io/d/SWE-LOCAL-TOURS-ERD-6738c9c3e9daa85acaad49df)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Project Screenshots 
+Login Screen
+<img width="1510" alt="Screenshot 2025-02-14 at 11 35 51 PM" src="https://github.com/user-attachments/assets/68815cb2-4c7d-494c-a228-a3b447f6d342" />
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
+Tours Page
+<img width="1510" alt="Screenshot 2025-02-14 at 11 36 04 PM" src="https://github.com/user-attachments/assets/540b3238-5733-4d86-94b3-c3db092474c7" />
 
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
+New Tour Form
+<img width="1510" alt="Screenshot 2025-02-14 at 11 36 56 PM" src="https://github.com/user-attachments/assets/5fac4316-c5ac-4af9-a85f-139c1d917198" />
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+Locations Page
+<img width="1511" alt="Screenshot 2025-02-14 at 11 37 21 PM" src="https://github.com/user-attachments/assets/c290b85c-4f96-4fdc-9e7c-e2691ccbd87a" />
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+Location Details page with map
+<img width="1510" alt="Screenshot 2025-02-14 at 11 38 02 PM" src="https://github.com/user-attachments/assets/76c29aef-bd07-4bf9-af5c-4446738d2cf1" />
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there if you did not add them when you were deploying your site
+Location Details page with tours at that location
+<img width="1512" alt="Screenshot 2025-02-14 at 11 38 10 PM" src="https://github.com/user-attachments/assets/9a29ee12-8711-428f-ae70-0ce4bccd6f8f" />
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+Itinerary Page (map)
+<img width="1512" alt="Screenshot 2025-02-14 at 11 38 24 PM" src="https://github.com/user-attachments/assets/32a09904-8503-42e1-b8fa-849bf140677e" />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Itinerary Page (calendar)
+<img width="1511" alt="Screenshot 2025-02-14 at 11 38 34 PM" src="https://github.com/user-attachments/assets/16c0f754-21b0-4f63-926e-bd2b42d9b434" />
+
+Tour Details Page
+<img width="1511" alt="Screenshot 2025-02-14 at 11 38 54 PM" src="https://github.com/user-attachments/assets/6781d1de-7145-493e-8bcd-51ff7bb77c6e" />
+
+Profile Page
+<img width="1512" alt="Screenshot 2025-02-14 at 11 39 29 PM" src="https://github.com/user-attachments/assets/0c7eb97a-527e-4c8f-9e12-b05496e186a4" />
+
+
+
+
+
+
+
+
+
+
+
+
+## Contributors
+- [Alyssa Cleland](https://github.com/alyssacleland)
+- [Andre Phosarath](https://github.com/AVP4000)
+- [Julien Cain](https://github.com/juliencain)
+- [Justin Glotzbach](https://github.com/justinglotz)
+- [Nelson Ngaleumo](https://github.com/NelsonOlivierNgaleumo)
