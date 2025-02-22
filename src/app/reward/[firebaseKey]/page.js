@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function TaskDetailsPage() {
-  return <div>this is the task details page</div>;
+export default function RewardDetailsPage() {
+  return <div>this is the reward details page</div>;
 }
