@@ -7,7 +7,15 @@ const signIn = () => {
 };
 
 const signOut = () => {
-  firebase.auth().signOut();
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log('Signed out');
+    })
+    .catch((error) => {
+      console.error('Sign out error', error);
+    });
 };
 
 export { signIn, signOut };
