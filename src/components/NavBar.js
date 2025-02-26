@@ -7,7 +7,7 @@ import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
       <Container>
         <Link passHref href="/" className="navbar-brand">
           <Image src="/images/horizon-logo.jpg" alt="logo" width={50} height={50} />
