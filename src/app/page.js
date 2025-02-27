@@ -102,7 +102,8 @@ function TasksPage() {
         </div>
       </div>
 
-      <div className="d-flex flex-wrap" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '750px', maxWidth: '1500px' }}>
+      {/* tasks cards or text if no tasks */}
+      <div className="d-flex flex-wrap align-itmes-center mx-auto" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '750px', maxWidth: '1500px' }}>
         {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
       </div>
     </div>
