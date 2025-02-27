@@ -1,5 +1,37 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import CategoryCard from '@/components/CategoryCard';
+import { useAuth } from '@/utils/context/authContext';
+import { getCategories } from '@/api/categoryData';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 
 export default function CategoriesPage() {
-  return <div>this is the categories page</div>;
+  const [categories, setCategories] = useState([]);
+  const { user } = useAuth();
+
+  const getAllTheCategories = () => {
+    getCategories(user.uid).then(setCategories);
+  };
+
+  useEffect(() => {
+    getAllTheCategories();
+  }, []);
+
+  return (
+    <div className="text-center my-4">
+      <Link href="/category/new" passHref>
+        <Button style={{ marginBottom: '20px' }}>Add A Category</Button>
+      </Link>
+
+      <div className="d-flex flex-wrap justify-content-center align-items-center mx-auto" style={{ display: 'flex', gap: '20px', overflowY: 'auto', maxHeight: '750px' }}>
+        {categories.map((category) => (
+          <div className="d-flex justify-content-center">
+            <CategoryCard key={category.firebaseKey} categoryObj={category} onUpdate={getAllTheCategories} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
