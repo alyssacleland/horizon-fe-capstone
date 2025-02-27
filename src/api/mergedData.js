@@ -42,7 +42,7 @@ const viewCategoryDetails = (categoryFirebaseKey) =>
   new Promise((resolve, reject) => {
     Promise.all([getSingleCategory(categoryFirebaseKey), getCategoryTasks(categoryFirebaseKey)])
       .then(([categoryObject, categoryTasksArray]) => {
-        resolve({ ...categoryObject, books: categoryTasksArray });
+        resolve({ ...categoryObject, tasks: categoryTasksArray });
       })
       .catch((error) => reject(error));
   });
