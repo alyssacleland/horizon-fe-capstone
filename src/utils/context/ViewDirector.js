@@ -7,7 +7,7 @@ import useUser from '@/utils/hooks/useUser';
 
 function ViewDirectorBasedOnUserAuthStatus({ children }) {
   const { user, userLoading } = useAuth();
-  const { userData, loading } = useUser();
+  const { userData, loading } = useUser(); // loading is true when user data is being fetched. in useUser, loading is set to false when user data is available. destructuring loading from useUser
 
   // if user state is null, then show loader
   // Show loading spinner while user data is being fetched

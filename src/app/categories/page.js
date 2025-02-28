@@ -27,7 +27,7 @@ export default function CategoriesPage() {
 
       <div className="d-flex flex-wrap justify-content-center align-items-center mx-auto" style={{ display: 'flex', gap: '20px', overflowY: 'auto', maxHeight: '750px' }}>
         {categories.map((category) => (
-          <div className="d-flex justify-content-center">
+          <div key={category.firebaseKey} className="d-flex justify-content-center">
             <CategoryCard key={category.firebaseKey} categoryObj={category} onUpdate={getAllTheCategories} />
           </div>
         ))}
