@@ -6,9 +6,14 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/utils/context/authContext';
 import { Button } from 'react-bootstrap';
 import Select from 'react-select';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoins } from '@fortawesome/free-solid-svg-icons';
+
 import TaskCard from '../components/TaskCard';
 import { getTasks, getCategoryTasks } from '../api/taskData';
 import { getCategories } from '../api/categoryData';
+import { getUser } from '../api/userData';
 
 function TasksPage() {
   // set state for tasks
@@ -17,6 +22,8 @@ function TasksPage() {
   const [categories, setCategories] = useState([]);
   // set state for selected categories
   const [selectedCategories, setSelectedCategories] = useState([]);
+  // set state for user object
+  const [userObj, setUserObj] = useState({});
   // for access to uid
   const { user } = useAuth();
 
@@ -24,6 +31,16 @@ function TasksPage() {
   const getAllTheTasks = () => {
     getTasks(user.uid).then(setTasks);
   };
+
+  // function to get user object from firebase
+  const getUserObj = () => {
+    getUser(user.uid).then((data) => setUserObj(data));
+  };
+
+  // get user object on mount
+  useEffect(() => {
+    getUserObj();
+  }, []);
 
   // retrieve tasks from firebase (filtered or all): initially or when categories are selected
   useEffect(() => {
@@ -57,6 +74,15 @@ function TasksPage() {
       }}
     >
       <h1>Your Tasks! You got this!</h1>
+
+      {/* TODO: for testing only, remove later!! */}
+      {/*  current tokens */}
+      <FontAwesomeIcon icon={faCoins} style={{ color: '#be8e00', fontSize: '1.3rem', marginLeft: '10px' }} />
+      <p style={{ fontSize: '1.6rem', margin: '2px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
+      {/* lifetime tokens */}
+      <FontAwesomeIcon icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
+      <p style={{ fontSize: '1.6rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
+
       <div style={{ margin: '20px' }}>
         {/* TODO: Create new task */}
         <Button variant="primary">New Task</Button>
@@ -104,7 +130,7 @@ function TasksPage() {
 
       {/* tasks cards or text if no tasks */}
       <div className="d-flex flex-wrap align-itmes-center mx-auto" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '750px', maxWidth: '1500px' }}>
-        {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
+        {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObj} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
       </div>
     </div>
   );
