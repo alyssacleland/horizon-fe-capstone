@@ -8,9 +8,7 @@ import { deleteTask } from '../api/taskData';
 import { useAuth } from '../utils/context/authContext';
 import { getUser, updateUser } from '../api/userData';
 
-export default function TaskCard({ taskObj, onUpdate }) {
-  // TODO: add onComplete as a prop
-
+export default function TaskCard({ taskObj, onUpdate, onComplete }) {
   const { user } = useAuth();
   const [userObj, setUserObj] = useState({});
 
@@ -54,9 +52,9 @@ export default function TaskCard({ taskObj, onUpdate }) {
     updateUser(payload).then(() => {
       // update the user object in state
       setUserObj(payload);
+      // run the onComplete function from the parent component. it should update the user object in the parent component
+      onComplete();
     });
-
-    // TODO: .then(() => onComplete()); (make sure to pass onComplete as a prop to TaskCard where it is used, and make it fetch the user object again)
   };
 
   return (
@@ -114,4 +112,5 @@ TaskCard.propTypes = {
     token_value: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
+  onComplete: PropTypes.func.isRequired,
 };
