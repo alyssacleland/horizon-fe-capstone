@@ -25,8 +25,10 @@ const useUser = () => {
 
               createUser(payload).then(({ name }) => {
                 const patchPayload = { ...payload, firebaseKey: name };
-                updateUser(patchPayload);
-                setUserData(patchPayload);
+                return updateUser(patchPayload).then(() => {
+                  // wait for updateUser to complete
+                  setUserData(patchPayload); // set userData after updateUser completes
+                });
               });
             } else {
               // If user exists, set userData from existing user
