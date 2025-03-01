@@ -12,11 +12,14 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
   const { user } = useAuth();
   const [userObj, setUserObj] = useState({});
 
+  // get the user object from firebase and set it in state any time the taskObj changes.
+  // needed to add taskObj as a dependency because a task's complete button only worked the first time it was clicked because the user object (and so tokens) was not being updated in state after updating in firebase. needed to get the user object from firebase and set it in state any time the taskObj changes to be able to prevent undefined userCurrentTokens and userLifetimeTokens to complete task multiple times.
+  // over in all tasks page, completing task triggers a change on the taskObj's which trigger's this useEffect to run (its' depenency array is taskCard)
   useEffect(() => {
     getUser(user.uid).then((data) => {
       setUserObj(data);
     });
-  }, []);
+  }, [taskObj]);
 
   // FOR DELETE, WE NEED TO REMOVE THE TASK AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE TASKS
@@ -35,17 +38,13 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
 
     // define user's current token count
     const userCurrentTokens = userObj[0]?.current_tokens;
-    console.log('userCurrentTokens:', userCurrentTokens);
 
     // define user's lifetime token count
     const userLifetimeTokens = userObj[0]?.lifetime_tokens;
-    console.log('userLifetimeTokens:', userLifetimeTokens);
 
     // add taskObj.token_value to the user's token counts (current and lifetime)
     const updatedUserCurrentTokens = userCurrentTokens + taskTokenValue;
-    console.log('updatedUserCurrentTokens:', updatedUserCurrentTokens);
     const updatedUserLifetimeTokens = userLifetimeTokens + taskTokenValue;
-    console.log('updatedUserLifetimeTokens:', updatedUserLifetimeTokens);
 
     const payload = { ...userObj[0], current_tokens: updatedUserCurrentTokens, lifetime_tokens: updatedUserLifetimeTokens };
     // update the user object in firebase

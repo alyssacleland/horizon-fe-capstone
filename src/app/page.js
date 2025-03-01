@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 
 'use client';
@@ -6,10 +7,6 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/utils/context/authContext';
 import { Button } from 'react-bootstrap';
 import Select from 'react-select';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoins } from '@fortawesome/free-solid-svg-icons';
-
 import TaskCard from '../components/TaskCard';
 import { getTasks, getCategoryTasks } from '../api/taskData';
 import { getCategories } from '../api/categoryData';
@@ -32,14 +29,16 @@ function TasksPage() {
     getTasks(user.uid).then(setTasks);
   };
 
-  // function to get user object from firebase
-  const getUserObj = () => {
+  // function to refresh user object and tasks.
+  // refreshing tasks triggers a change on the taskObj's so that useEffect in TaskCard will re-render (its' depenency array is taskCard)
+  const getUserObjAndTasks = () => {
     getUser(user.uid).then((data) => setUserObj(data));
+    getTasks(user.uid).then((data) => setTasks(data));
   };
 
-  // get user object on mount
+  // get user object and tasks on mount
   useEffect(() => {
-    getUserObj();
+    getUserObjAndTasks();
   }, []);
 
   // retrieve tasks from firebase (filtered or all): initially or when categories are selected
@@ -59,7 +58,7 @@ function TasksPage() {
   useEffect(() => {
     getCategories(user.uid).then((data) => {
       // set state for categories. map over the data to create an array of objects with value and label properties
-      setCategories(data.map((cat) => ({ value: cat.firebaseKey, label: cat.name })));
+      setCategories(data.map((category) => ({ value: category.firebaseKey, label: category.name })));
     });
   }, [user.uid]); // only run when user.uid changes
 
@@ -74,14 +73,6 @@ function TasksPage() {
       }}
     >
       <h1>Your Tasks! You got this!</h1>
-
-      {/* TODO: for testing only, remove later!! */}
-      {/*  current tokens */}
-      <FontAwesomeIcon icon={faCoins} style={{ color: '#be8e00', fontSize: '1.3rem', marginLeft: '10px' }} />
-      <p style={{ fontSize: '1.6rem', margin: '2px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
-      {/* lifetime tokens */}
-      <FontAwesomeIcon icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
-      <p style={{ fontSize: '1.6rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
 
       <div style={{ margin: '20px' }}>
         {/* TODO: Create new task */}
@@ -130,7 +121,7 @@ function TasksPage() {
 
       {/* tasks cards or text if no tasks */}
       <div className="d-flex flex-wrap align-itmes-center mx-auto" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '750px', maxWidth: '1500px' }}>
-        {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObj} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
+        {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndTasks} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
       </div>
     </div>
   );
