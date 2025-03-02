@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins, faCircleInfo, faPenToSquare, faTrashCan, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { deleteTask } from '../api/taskData';
+import { deleteTask, getSingleTask, updateTask } from '../api/taskData';
 import { useAuth } from '../utils/context/authContext';
 import { getUser, updateUser } from '../api/userData';
 
 export default function TaskCard({ taskObj, onUpdate, onComplete }) {
   const { user } = useAuth();
   const [userObj, setUserObj] = useState({});
+  const [theTaskObj, setTheTaskObj] = useState(taskObj);
 
   // get the user object from firebase and set it in state any time the taskObj changes.
   // needed to add taskObj as a dependency because a task's complete button only worked the first time it was clicked because the user object (and so tokens) was not being updated in state after updating in firebase. needed to get the user object from firebase and set it in state any time the taskObj changes to be able to prevent undefined userCurrentTokens and userLifetimeTokens to complete task multiple times.
@@ -19,6 +20,11 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
     getUser(user.uid).then((data) => {
       setUserObj(data);
     });
+  }, [taskObj]);
+
+  // getting and setting task obj
+  useEffect(() => {
+    getSingleTask(taskObj.firebaseKey).then((data) => setTheTaskObj(data));
   }, [taskObj]);
 
   // FOR DELETE, WE NEED TO REMOVE THE TASK AND HAVE THE VIEW RERENDER,
@@ -45,12 +51,29 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
     const updatedUserCurrentTokens = userCurrentTokens + taskTokenValue;
     const updatedUserLifetimeTokens = userLifetimeTokens + taskTokenValue;
 
-    const payload = { ...userObj[0], current_tokens: updatedUserCurrentTokens, lifetime_tokens: updatedUserLifetimeTokens };
+    // get the task's completions
+    const { completions } = theTaskObj;
+
+    // +1 to task's completions
+    const updatedCompletions = completions + 1;
+
+    // update the user payload with updated tokens
+    const userPayload = { ...userObj[0], current_tokens: updatedUserCurrentTokens, lifetime_tokens: updatedUserLifetimeTokens };
+
+    // update the task payload with udpated completions
+    const taskPayload = { ...theTaskObj, completions: updatedCompletions };
+
     // update the user object in firebase
-    updateUser(payload).then(() => {
+    updateUser(userPayload).then(() => {
       // update the user object in state
-      setUserObj(payload);
+      setUserObj(userPayload);
       // run the onComplete function from the parent component. it should update the user object in the parent component
+      onComplete();
+    });
+
+    // update the task obj in firebase with completions patched
+    updateTask(taskPayload).then(() => {
+      setTheTaskObj(taskPayload);
       onComplete();
     });
   };
