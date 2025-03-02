@@ -32,7 +32,6 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
   const incrementUserTokens = () => {
     // get the task's token value via taskObj.token_value
     const taskTokenValue = taskObj.token_value;
-    console.log('taskTokenValue:', taskTokenValue);
 
     // get the user object from firebase, this is done in the useEffect above
 
