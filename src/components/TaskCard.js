@@ -12,6 +12,7 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
   const { user } = useAuth();
   const [userObj, setUserObj] = useState({});
   const [theTaskObj, setTheTaskObj] = useState(taskObj);
+  const [successMessage, setSuccessMessage] = useState('');
 
   // get the user object from firebase and set it in state any time the taskObj changes.
   // needed to add taskObj as a dependency because a task's complete button only worked the first time it was clicked because the user object (and so tokens) was not being updated in state after updating in firebase. needed to get the user object from firebase and set it in state any time the taskObj changes to be able to prevent undefined userCurrentTokens and userLifetimeTokens to complete task multiple times.
@@ -65,6 +66,11 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
 
     // update the user object in firebase
     updateUser(userPayload).then(() => {
+      // show success message
+      setSuccessMessage(`Task Completed, you earned ${taskObj.token_value} tokens!`);
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 3000);
       // update the user object in state
       setUserObj(userPayload);
       // run the onComplete function from the parent component. it should update the user object in the parent component
@@ -121,6 +127,8 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
           <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem', cursor: 'pointer' }} onClick={incrementUserTokens} />
         </OverlayTrigger>
       </div>
+
+      {successMessage && <h6 style={{ color: 'green' }}>{successMessage}</h6>}
     </Card>
   );
 }

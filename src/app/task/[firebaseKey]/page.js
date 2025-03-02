@@ -15,10 +15,11 @@ import { useRouter } from 'next/navigation';
 export default function TaskDetailsPage({ params }) {
   const { firebaseKey } = params;
   const { user } = useAuth();
-  const router = useRouter;
+  const router = useRouter();
   const [userObj, setUserObj] = useState({});
   const [taskDetails, setTaskDetails] = useState({});
   const [taskObj, setTaskObj] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
     getTaskDetails(firebaseKey).then((data) => setTaskDetails(data));
@@ -85,6 +86,11 @@ export default function TaskDetailsPage({ params }) {
 
     // update the user object in firebase
     updateUser(userPayload).then(() => {
+      // show success message
+      setSuccessMessage(`Task Completed, you earned ${taskDetails.token_value} tokens!`);
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 3000);
       // update the user object in state
       setUserObj(userPayload);
       // run the onComplete function from the parent component. it should update the user object in the parent component
@@ -160,6 +166,7 @@ export default function TaskDetailsPage({ params }) {
           <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem', cursor: 'pointer' }} onClick={incrementUserTokens} />
         </OverlayTrigger>
       </div>
+      {successMessage && <h6 style={{ color: 'green', marginLeft: '1100px' }}>{successMessage}</h6>}
 
       {/* Back to All Tasks button */}
       <Link style={{ marginLeft: '900px' }} href="/" passHref>
