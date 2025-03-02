@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -6,17 +9,38 @@ import { Button } from 'react-bootstrap';
 import propTypes from 'prop-types';
 import TaskCard from '../../../components/TaskCard';
 import { viewCategoryDetails } from '../../../api/mergedData';
+import { getUser } from '../../../api/userData';
+import { useAuth } from '../../../utils/context/authContext';
 
 export default function CategoryDetailsPage({ params }) {
   const { firebaseKey } = params; // destructuring the params object
 
   // set state for categoryDetails
   const [categoryDetails, setCategoryDetails] = useState({});
+  const [userObj, setUserObj] = useState({});
+  const { user } = useAuth();
 
   // retrieve category details from firebase
   useEffect(() => {
     viewCategoryDetails(firebaseKey).then(setCategoryDetails);
   }, [firebaseKey]);
+
+  // function to get all tasks
+  const getAllTheTasks = () => {
+    viewCategoryDetails(firebaseKey).then(setCategoryDetails);
+  };
+
+  // function to refresh user object and tasks.
+  // refreshing tasks triggers a change on the taskObj's so that useEffect in TaskCard will re-render (its' depenency array is taskCard)
+  const getUserObjAndDetails = () => {
+    getUser(user.uid).then((data) => setUserObj(data));
+    viewCategoryDetails(firebaseKey).then((data) => setCategoryDetails(data));
+  };
+
+  // get user object and details on mount
+  useEffect(() => {
+    getUserObjAndDetails();
+  }, []);
 
   const tasksArray = categoryDetails.tasks || []; // if categoryDetails.tasks is undefined, set it to an empty array
 
@@ -28,7 +52,7 @@ export default function CategoryDetailsPage({ params }) {
       <div className="d-flex flex-wrap justify-content-center align-items-center mx-auto" style={{ display: 'flex', gap: '20px', overflowY: 'auto', maxHeight: '750px' }}>
         {tasksArray.map((task) => (
           <div className="d-flex justify-content-center">
-            <TaskCard key={task.firebaseKey} taskObj={task} />
+            <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndDetails} />
           </div>
         ))}
       </div>
