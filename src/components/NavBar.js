@@ -57,7 +57,7 @@ export default function NavBar() {
     <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
       <Container>
         <Link passHref href="/" className="navbar-brand">
-          <Image src="/images/horizon-logo.jpg" alt="logo" width={50} height={50} />
+          <Image src="/images/horizon-logo-2.png" alt="logo" width={65} height={65} />
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
