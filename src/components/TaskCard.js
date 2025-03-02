@@ -113,12 +113,12 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
 
         {/* delete button */}
         <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskObj.firebaseKey}`}>Delete</Tooltip>}>
-          <FontAwesomeIcon className="m-2 fa-2x" style={{ color: 'grey', fontSize: '1.6rem' }} icon={faTrashCan} onClick={deleteThisTask} />
+          <FontAwesomeIcon className="m-2 fa-2x" style={{ color: 'grey', fontSize: '1.6rem', cursor: 'pointer' }} icon={faTrashCan} onClick={deleteThisTask} />
         </OverlayTrigger>
 
         {/* complete button */}
         <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskObj.firebaseKey}`}>Complete</Tooltip>}>
-          <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem' }} onClick={incrementUserTokens} />
+          <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem', cursor: 'pointer' }} onClick={incrementUserTokens} />
         </OverlayTrigger>
       </div>
     </Card>

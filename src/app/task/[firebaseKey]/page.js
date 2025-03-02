@@ -6,7 +6,7 @@ import { getTaskDetails } from '@/api/mergedData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins, faPenToSquare, faTrashCan, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { deleteTask , getSingleTask, updateTask } from '@/api/taskData';
+import { deleteTask, getSingleTask, updateTask } from '@/api/taskData';
 import { useAuth } from '@/utils/context/authContext';
 import { getUser, updateUser } from '@/api/userData';
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
@@ -72,7 +72,7 @@ export default function TaskDetailsPage({ params }) {
     const updatedUserLifetimeTokens = userLifetimeTokens + taskTokenValue;
 
     // get the task's completions
-    const {completions} = taskDetails;
+    const { completions } = taskDetails;
 
     // +1 to task's completions
     const updatedCompletions = completions + 1;
@@ -152,12 +152,12 @@ export default function TaskDetailsPage({ params }) {
 
         {/* Delete button */}
         <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Delete</Tooltip>}>
-          <FontAwesomeIcon className="m-2 fa-2x" style={{ color: 'grey', fontSize: '1.6rem' }} icon={faTrashCan} onClick={deleteThisTask} />
+          <FontAwesomeIcon className="m-2 fa-2x" style={{ color: 'grey', fontSize: '1.6rem', cursor: 'pointer' }} icon={faTrashCan} onClick={deleteThisTask} />
         </OverlayTrigger>
 
         {/* Complete button */}
         <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Complete</Tooltip>}>
-          <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem' }} onClick={incrementUserTokens} />
+          <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem', cursor: 'pointer' }} onClick={incrementUserTokens} />
         </OverlayTrigger>
       </div>
 
