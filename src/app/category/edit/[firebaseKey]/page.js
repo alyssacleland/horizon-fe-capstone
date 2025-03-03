@@ -15,7 +15,7 @@ export default function EditCategoryPage({ params }) {
 
   return (
     <div>
-      <CategoryForm catObj={editItem} />
+      <CategoryForm obj={editItem} />
     </div>
   );
 }
