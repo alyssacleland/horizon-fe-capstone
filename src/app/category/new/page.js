@@ -1,5 +1,10 @@
 import React from 'react';
+import CategoryForm from '../../../components/forms/CategoryForm';
 
 export default function NewCategoryPage() {
-  return <div>this is the new category page</div>;
+  return (
+    <div>
+      <CategoryForm />
+    </div>
+  );
 }

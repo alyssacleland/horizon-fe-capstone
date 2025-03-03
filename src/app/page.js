@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/utils/context/authContext';
 import { Button } from 'react-bootstrap';
 import Select from 'react-select';
+import Link from 'next/link';
 import TaskCard from '../components/TaskCard';
 import { getTasks, getCategoryTasks } from '../api/taskData';
 import { getCategories } from '../api/categoryData';
@@ -76,7 +77,9 @@ function TasksPage() {
 
       <div style={{ margin: '20px' }}>
         {/* TODO: Create new task */}
-        <Button variant="primary">New Task</Button>
+        <Link href="/task/new" passHref>
+          <Button variant="primary">New Task</Button>
+        </Link>
         <div className="container mt-3">
           {/* select categories menu */}
           <div className="container mt-3">
