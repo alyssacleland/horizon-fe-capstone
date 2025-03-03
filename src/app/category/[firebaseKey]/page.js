@@ -48,13 +48,22 @@ export default function CategoryDetailsPage({ params }) {
 
   return (
     <div className="text-center my-4">
-      <h1>{categoryDetails.name} tasks: </h1>
+      <h1>{categoryDetails.name} Tasks: </h1>
       <div className="d-flex flex-wrap justify-content-center align-items-center mx-auto" style={{ display: 'flex', gap: '20px', overflowY: 'auto', maxHeight: '750px' }}>
-        {tasksArray.map((task) => (
-          <div className="d-flex justify-content-center">
-            <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndDetails} />
-          </div>
-        ))}
+        {tasksArray.length > 0 ? (
+          tasksArray.map((task) => (
+            <div className="d-flex justify-content-center">
+              <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndDetails} />
+            </div>
+          ))
+        ) : (
+          <p>
+              No {categoryDetails.name} tasks yet,
+              <Link href="/task/new" passHref>
+                <Button variant="link">create one?</Button>
+              </Link>
+            </p>
+        )}
       </div>
       <Link href="/categories" passHref>
         <Button style={{ marginTop: '20px' }}>Back to Categories</Button>

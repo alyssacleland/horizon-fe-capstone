@@ -73,53 +73,49 @@ function TasksPage() {
         margin: '0 auto',
       }}
     >
-      <h1>Your Tasks! You got this!</h1>
-
-      <div style={{ margin: '20px' }}>
-        {/* TODO: Create new task */}
+      <h1 style={{ marginBottom: '50px' }}>Welcome, {user.displayName}! Your Tasks:</h1>
+      <div className="d-flex align-items-center justify-content-center" style={{ gap: '10px', margin: '30px' }}>
+        {/* Create new task */}
         <Link href="/task/new" passHref>
           <Button variant="primary">New Task</Button>
         </Link>
-        <div className="container mt-3">
-          {/* select categories menu */}
-          <div className="container mt-3">
-            <Select
-              options={categories}
-              isMulti
-              value={selectedCategories}
-              onChange={setSelectedCategories}
-              className="basic-multi-select"
-              classNamePrefix="select"
-              placeholder="Select Categories..."
-              styles={{
-                control: (provided) => ({
-                  ...provided,
-                  color: 'black',
-                }),
-                singleValue: (provided) => ({
-                  ...provided,
-                  color: 'black',
-                }),
-                multiValue: (provided) => ({
-                  ...provided,
-                  color: 'black',
-                }),
-                input: (provided) => ({
-                  ...provided,
-                  color: 'black',
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  color: 'black',
-                }),
-                option: (provided) => ({
-                  ...provided,
-                  color: 'black',
-                }),
-              }}
-            />
-          </div>
-        </div>
+        {/* select categories menu */}
+        <Select
+          style={{ maxWidth: '300px' }}
+          options={categories}
+          isMulti
+          value={selectedCategories}
+          onChange={setSelectedCategories}
+          className="basic-multi-select"
+          classNamePrefix="select"
+          placeholder="Select Categories..."
+          styles={{
+            control: (provided) => ({
+              ...provided,
+              color: 'black',
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+              color: 'black',
+            }),
+            multiValue: (provided) => ({
+              ...provided,
+              color: 'black',
+            }),
+            input: (provided) => ({
+              ...provided,
+              color: 'black',
+            }),
+            menu: (provided) => ({
+              ...provided,
+              color: 'black',
+            }),
+            option: (provided) => ({
+              ...provided,
+              color: 'black',
+            }),
+          }}
+        />
       </div>
 
       {/* tasks cards or text if no tasks */}
