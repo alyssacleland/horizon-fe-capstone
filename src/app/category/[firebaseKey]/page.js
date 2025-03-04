@@ -48,8 +48,8 @@ export default function CategoryDetailsPage({ params }) {
 
   return (
     <div className="text-center my-4">
-      <h1>{categoryDetails.name} Tasks: </h1>
-      <div className="d-flex flex-wrap justify-content-center align-items-center mx-auto" style={{ display: 'flex', gap: '20px', overflowY: 'auto', maxHeight: '750px' }}>
+      <h2 style={{ marginBottom: '30px' }}>{categoryDetails.name} Tasks: </h2>
+      <div className="d-flex flex-wrap justify-content-center align-items-center mx-auto" style={{ display: 'flex', gap: '20px', overflowY: 'auto', maxHeight: '600px', maxWidth: '1500px' }}>
         {tasksArray.length > 0 ? (
           tasksArray.map((task) => (
             <div className="d-flex justify-content-center">
@@ -58,11 +58,11 @@ export default function CategoryDetailsPage({ params }) {
           ))
         ) : (
           <p>
-              No {categoryDetails.name} tasks yet,
-              <Link href="/task/new" passHref>
-                <Button variant="link">create one?</Button>
-              </Link>
-            </p>
+            No {categoryDetails.name} tasks yet,
+            <Link href="/task/new" passHref>
+              <Button variant="link">create one?</Button>
+            </Link>
+          </p>
         )}
       </div>
       <Link href="/categories" passHref>

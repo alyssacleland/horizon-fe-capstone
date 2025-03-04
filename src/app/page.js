@@ -67,14 +67,14 @@ function TasksPage() {
     <div
       className="text-center my-4"
       style={{
-        height: '90vh',
-        padding: '30px',
-        // maxWidth: '400px',
+        height: '90px',
+        padding: '0px',
+        maxWidth: '1100px',
         margin: '0 auto',
       }}
     >
-      <h1 style={{ marginBottom: '50px' }}>Welcome, {user.displayName}! Your Tasks:</h1>
-      <div className="d-flex align-items-center justify-content-center" style={{ gap: '10px', margin: '30px' }}>
+      <h2 style={{ marginBottom: '30px' }}>{user.displayName}&apos;s Tasks:</h2>
+      <div className="d-flex align-items-center justify-content-center" style={{ gap: '10px', marginBottom: '20px' }}>
         {/* Create new task */}
         <Link href="/task/new" passHref>
           <Button variant="primary">New Task</Button>
@@ -119,7 +119,7 @@ function TasksPage() {
       </div>
 
       {/* tasks cards or text if no tasks */}
-      <div className="d-flex flex-wrap align-itmes-center mx-auto" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '750px', maxWidth: '1500px' }}>
+      <div className="d-flex flex-wrap align-itmes-center mx-auto" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '600px', maxWidth: '1500px' }}>
         {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndTasks} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
       </div>
     </div>
