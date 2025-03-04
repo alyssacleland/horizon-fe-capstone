@@ -21,7 +21,7 @@ const initialState = {
   firebaseKey: '',
   image: '',
   name: '',
-  token_value: '',
+  token_value: 0,
   uid: '',
 };
 
@@ -47,7 +47,7 @@ export default function TaskForm({ obj = initialState }) {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: name === 'token_value' ? Number(value) : value, // convert token_value to number
     }));
   };
 
@@ -60,6 +60,7 @@ export default function TaskForm({ obj = initialState }) {
     } else {
       // CREATE
       const payload = { ...formInput, uid: user.uid };
+      console.log('Submitting payload:', payload); // Debugging step
       createTask(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateTask(patchPayload).then(() => {

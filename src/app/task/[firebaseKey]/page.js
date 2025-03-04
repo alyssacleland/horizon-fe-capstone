@@ -29,8 +29,6 @@ export default function TaskDetailsPage({ params }) {
     getSingleTask(firebaseKey).then((data) => setTaskObj(data));
   }, [firebaseKey]);
 
-  console.log('task details: ', taskDetails);
-
   // get the user object from firebase and set it in state any time the taskObj changes.
   // needed to add taskObj as a dependency because a task's complete button only worked the first time it was clicked because the user object (and so tokens) was not being updated in state after updating in firebase. needed to get the user object from firebase and set it in state any time the taskObj changes to be able to prevent undefined userCurrentTokens and userLifetimeTokens to complete task multiple times.
   // over in all tasks page, completing task triggers a change on the taskObj's which trigger's this useEffect to run (its' depenency array is taskCard)
@@ -58,15 +56,15 @@ export default function TaskDetailsPage({ params }) {
 
   const incrementUserTokens = () => {
     // get the task's token value via taskObj.token_value
-    const taskTokenValue = taskDetails.token_value;
+    const taskTokenValue = Number(taskDetails.token_value);
 
     // get the user object from firebase, this is done in the useEffect above
 
     // define user's current token count
-    const userCurrentTokens = userObj[0]?.current_tokens;
+    const userCurrentTokens = Number(userObj[0]?.current_tokens);
 
     // define user's lifetime token count
-    const userLifetimeTokens = userObj[0]?.lifetime_tokens;
+    const userLifetimeTokens = Number(userObj[0]?.lifetime_tokens);
 
     // add taskObj.token_value to the user's token counts (current and lifetime)
     const updatedUserCurrentTokens = userCurrentTokens + taskTokenValue;
@@ -106,7 +104,7 @@ export default function TaskDetailsPage({ params }) {
   return (
     <div style={{ marginTop: '20px' }}>
       {/* image and task details */}
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', marginLeft: '1100px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', marginLeft: '650px' }}>
         {/* image */}
         <img
           className="faded-image"
@@ -144,32 +142,32 @@ export default function TaskDetailsPage({ params }) {
 
           {/* COMPLETIONS */}
           <h5 style={{ marginTop: '20px', marginBottom: '0' }}>Completed {taskDetails.completions} times.</h5>
+
+          {/* BUTTONS */}
+          <div className="" style={{ marginTop: '90px' }}>
+            {/* Edit button */}
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Edit</Tooltip>}>
+              <Link href={`/task/edit/${taskDetails.firebaseKey}`} passHref>
+                <FontAwesomeIcon className="m-2 fa-2x" icon={faPenToSquare} style={{ color: 'grey', fontSize: '1.6rem' }} />
+              </Link>
+            </OverlayTrigger>
+
+            {/* Delete button */}
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Delete</Tooltip>}>
+              <FontAwesomeIcon className="m-2 fa-2x" style={{ color: 'grey', fontSize: '1.6rem', cursor: 'pointer' }} icon={faTrashCan} onClick={deleteThisTask} />
+            </OverlayTrigger>
+
+            {/* Complete button */}
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Complete</Tooltip>}>
+              <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem', cursor: 'pointer' }} onClick={incrementUserTokens} />
+            </OverlayTrigger>
+          </div>
+          {successMessage && <h6 style={{ color: 'green', marginLeft: 'px' }}>{successMessage}</h6>}
         </div>
       </div>
 
-      {/* BUTTONS */}
-      <div className="d-flex align-items-center justify-content-center">
-        {/* Edit button */}
-        <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Edit</Tooltip>}>
-          <Link href={`/task/edit/${taskDetails.firebaseKey}`} passHref>
-            <FontAwesomeIcon className="m-2 fa-2x" icon={faPenToSquare} style={{ color: 'grey', fontSize: '1.6rem' }} />
-          </Link>
-        </OverlayTrigger>
-
-        {/* Delete button */}
-        <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Delete</Tooltip>}>
-          <FontAwesomeIcon className="m-2 fa-2x" style={{ color: 'grey', fontSize: '1.6rem', cursor: 'pointer' }} icon={faTrashCan} onClick={deleteThisTask} />
-        </OverlayTrigger>
-
-        {/* Complete button */}
-        <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${taskDetails.firebaseKey}`}>Complete</Tooltip>}>
-          <FontAwesomeIcon className="m-2 fa-2x" icon={faCheckCircle} style={{ color: 'green', fontSize: '2.2rem', cursor: 'pointer' }} onClick={incrementUserTokens} />
-        </OverlayTrigger>
-      </div>
-      {successMessage && <h6 style={{ color: 'green', marginLeft: '1100px' }}>{successMessage}</h6>}
-
       {/* Back to All Tasks button */}
-      <Link style={{ marginLeft: '900px' }} href="/" passHref>
+      <Link style={{ marginLeft: '550px' }} href="/" passHref>
         <Button style={{ marginTop: '20px' }}>Back to All Tasks</Button>
       </Link>
     </div>

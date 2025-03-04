@@ -21,6 +21,8 @@ export default function CategoriesPage() {
 
   return (
     <div className="text-center my-4">
+      <h2 style={{ marginBottom: '30px' }}>{user.displayName}&apos;s Categories:</h2>
+
       <Link href="/category/new" passHref>
         <Button style={{ marginBottom: '20px' }}>Add A Category</Button>
       </Link>
