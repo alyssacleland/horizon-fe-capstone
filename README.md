@@ -10,7 +10,7 @@ Horizon is designed for individuals who want to improve their productivity and s
 
 ## Features 
 
-- Create,read, edit, and delete tasks and categories 
+- Create, read, update, and delete tasks and categories 
 - Assign number of tokens a task is worth
 - Earn tokens, updated in the navbar, when completing tasks
 - Assign tasks to categories and filter all tasks by categories
@@ -27,7 +27,7 @@ Horizon is designed for individuals who want to improve their productivity and s
 
 
 ## Video Walkthrough of APP NAME 
-<!-- TODO: -->
+https://www.loom.com/share/b7b15734a92b43eb9f78e4bbfeb2ff78?sid=55df995e-100c-4a25-8831-37c4bced89a7
 
 
 ## Relevant Links
@@ -36,7 +36,12 @@ Horizon is designed for individuals who want to improve their productivity and s
 - [ERD](https://dbdiagram.io/d/Horizon-small-stretch-ERD-67b121ba263d6cf9a049836c)
 
 ## Project Screenshots 
-<!-- TODO: -->
+<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.37.51 AM.png">
+<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.38.00 AM.png">
+<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.38.12 AM.png">
+<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.40.06 AM.png">
+<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.44.18 AM.png">
+<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.44.32 AM.png">
 
 
 ## Contributors
