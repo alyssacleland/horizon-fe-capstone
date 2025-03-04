@@ -16,7 +16,7 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
 
   // get the user object from firebase and set it in state any time the taskObj changes.
   // needed to add taskObj as a dependency because a task's complete button only worked the first time it was clicked because the user object (and so tokens) was not being updated in state after updating in firebase. needed to get the user object from firebase and set it in state any time the taskObj changes to be able to prevent undefined userCurrentTokens and userLifetimeTokens to complete task multiple times.
-  // over in all tasks page, completing task triggers a change on the taskObj's which trigger's this useEffect to run (its' depenency array is taskCard)
+  // over in all tasks page, completing task triggers a change on the taskObj's which trigger's this useEffect to run (its' depenency array is taskCard).
   useEffect(() => {
     getUser(user.uid).then((data) => {
       setUserObj(data);
