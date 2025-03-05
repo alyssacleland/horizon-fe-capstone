@@ -27,14 +27,15 @@ Horizon is designed for individuals who want to improve their productivity and s
 
 
 ## Video Walkthrough of APP NAME 
-https://www.loom.com/share/b7b15734a92b43eb9f78e4bbfeb2ff78?sid=55df995e-100c-4a25-8831-37c4bced89a7
+- [Quick MVP Features Video (no sound)](https://www.loom.com/share/b7b15734a92b43eb9f78e4bbfeb2ff78?sid=55df995e-100c-4a25-8831-37c4bced89a7)
+- [Loom Video for MVP Approval (I talk through features and and present artifacts)](https://www.loom.com/share/281839f5d8284534b1a0eddc6abdfe45?sid=5c9d6678-92bc-4114-a29f-c48819e66a31)
 
 
 ## Relevant Links
 - [Wireframes](https://www.figma.com/design/8umjqkXBwYGaAKR8RIHEnx/Horizon-MVP-Wireframes?node-id=0-1&t=iQJOcwlJNqN5Eyqv-1)
 - [Project Board](https://github.com/users/alyssacleland/projects/5/views/1)
 - [ERD](https://dbdiagram.io/d/Horizon-small-stretch-ERD-67b121ba263d6cf9a049836c)
-- [Presentation] (https://docs.google.com/presentation/d/1LxLbIzkTIpkID4UUiEQD0t-kROrGo7rqwmP1Vx-BE4k/edit?usp=sharing)
+- [Presentation](https://docs.google.com/presentation/d/1LxLbIzkTIpkID4UUiEQD0t-kROrGo7rqwmP1Vx-BE4k/edit?usp=sharing)
 
 ## Project Screenshots 
 <img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.37.51 AM.png">
