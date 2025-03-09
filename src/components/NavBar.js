@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
@@ -80,12 +80,21 @@ export default function NavBar() {
             <Link className="nav-link" href="/rewards">
               Rewards
             </Link>
-            {/*  current tokens, TODO: Add animation class back in as className later */}
-            <FontAwesomeIcon className={animationClass} icon={faCoins} style={{ color: '#be8e00', fontSize: '1.3rem', marginLeft: '10px' }} />
-            <p style={{ fontSize: '1.6rem', margin: '2px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
+            {/*  current tokens */}
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Current Token Balance</Tooltip>}>
+              <span style={{ display: 'flex', alignItems: 'center' }}>
+                <FontAwesomeIcon className={animationClass} icon={faCoins} style={{ color: '#be8e00', fontSize: '1.3rem', marginLeft: '10px' }} />
+                <p style={{ fontSize: '1.1rem', margin: '2px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
+              </span>
+            </OverlayTrigger>
+
             {/* lifetime tokens */}
-            <FontAwesomeIcon className={animationClass} icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
-            <p style={{ fontSize: '1.6rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Lifetime Tokens Earned</Tooltip>}>
+              <span style={{ display: 'flex', alignItems: 'center' }}>
+                <FontAwesomeIcon className={animationClass} icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
+                <p style={{ fontSize: '1.1rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
+              </span>
+            </OverlayTrigger>
           </Nav>
 
           <Button variant="danger" onClick={signOut}>

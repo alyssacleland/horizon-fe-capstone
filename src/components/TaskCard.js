@@ -99,8 +99,6 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
       {/* <div className="image-container">  */}
       <Card.Img variant="top" className="faded-image" style={{ height: '150px', objectFit: 'cover', padding: '' }} src={taskObj.image} />
 
-      {/* </div> */}
-
       {/* buttons */}
       <div className="d-flex align-items-center justify-content-center">
         {/* details button */}

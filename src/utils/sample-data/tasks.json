@@ -1,102 +1,122 @@
 {
-  "-OJiixF2FYQjASQNxfdV": {
-    "firebaseKey": "-OJiixF2FYQjASQNxfdV",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Brush Teeth",
-    "description": "Maintain oral hygiene by brushing your teeth for at least two minutes.",
-    "token_value": 2,
-    "completions": 0,
-    "category_id": "-OJik-zAKSNvrPy5Vobs",
-    "image": "https://www.colgate.com/content/dam/cp-sites/oral-care/oral-care-center/en-in/occ/basics/brushing-and-flossing/how-long-should-you-brush-your-teeth-for.jpg"
-  },
-  "-OJiixF321HluGPesB6H": {
-    "firebaseKey": "-OJiixF321HluGPesB6H",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Make Bed",
-    "description": "Neatly arrange your bed by straightening sheets and fluffing pillows.",
-    "token_value": 8,
-    "completions": 0,
-    "category_id": "-OJik-zAKSNvrPy5Vobr",
-    "image": "https://www.bhg.com/thmb/FbjYud-O2DrcJ_PNWbSL10wqHg0=/4000x2700/filters:no_upscale()/bhg-how-to-make-a-bed-hero-2_9usRPbXh4ghAbU7COY5zVV-6a38acd4e0b3423680f7a418a57bf8c5.jpg"
-  },
-  "-OJiixF321HluGPesB6I": {
-    "firebaseKey": "-OJiixF321HluGPesB6I",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Fold Laundry",
-    "description": "Organize clean clothes by folding them neatly and putting them away.",
-    "token_value": 25,
-    "completions": 0,
-    "category_id": "-OJik-zAKSNvrPy5Vobr",
-    "image": "https://tommysudslaundry.com/wp-content/uploads/2024/08/sarah-brown-oa7pqzmmhua-unsplash_2_1.jpg__1200x800_q85_crop_subsampling-2_upscale.jpg"
-  },
   "-OJiixF5cMrg8MKB1v6S": {
-    "firebaseKey": "-OJiixF5cMrg8MKB1v6S",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Take a Shower",
-    "description": "Refresh and clean yourself by taking a warm shower.",
-    "token_value": 5,
-    "completions": 0,
-    "category_id": "-OJik-zAKSNvrPy5Vobs",
-    "image": "https://blogstudio.s3.amazonaws.com/showergem/600286b9b16cc403b37908cb7df67af8.jpg"
+      "category_id": "-OJik-zAKSNvrPy5Vobs",
+      "completions": 0,
+      "description": "Refresh and clean yourself by taking a warm shower.",
+      "firebaseKey": "-OJiixF5cMrg8MKB1v6S",
+      "image": "https://blogstudio.s3.amazonaws.com/showergem/600286b9b16cc403b37908cb7df67af8.jpg",
+      "name": "Take a Shower",
+      "token_value": 5,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
   },
   "-OJiixF5cMrg8MKB1v6T": {
-    "firebaseKey": "-OJiixF5cMrg8MKB1v6T",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Take out Trash",
-    "description": "Dispose of household waste by taking out the trash.",
-    "token_value": 5,
-    "completions": 0,
-    "category_id": "-OJik-zAKSNvrPy5Vobr",
-    "image": "https://www.firstplaceforhealth.com/wp-content/uploads/2019/05/TAKING-OUT-THE-TRASH-AdobeStock_270126462-scaled-300x300_c.jpeg"
-  },
-  "-OJiixF6wpGXLdRYZXrf": {
-    "firebaseKey": "-OJiixF6wpGXLdRYZXrf",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Wash Dishes",
-    "description": "Clean dishes by washing them with soap and water.",
-    "token_value": 15,
-    "completions": 0,
-    "category_id": "-OJik-zAKSNvrPy5Vobr",
-    "image": "https://assets.epicurious.com/photos/582a339cb3446c1b212b9d5e/master/pass/washing-dishes-111416.jpg"
-  },
-  "-OJiixF7EHj3VYEodcoO": {
-    "firebaseKey": "-OJiixF7EHj3VYEodcoO",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Submit Timesheet",
-    "description": "Log your work hours and submit the timesheet for approval.",
-    "token_value": 2,
-    "completions": 0,
-    "category_id": "-OJik-zBMe3LR7w2ce5E",
-    "image": "https://blog-cdn.everhour.com/blog/wp-content/uploads/2019/09/3b2rz0.jpg"
-  },
-  "-OJiixF7EHj3VYEodcoP": {
-    "firebaseKey": "-OJiixF7EHj3VYEodcoP",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Wash Face",
-    "description": "Cleanse your face with a gentle wash to remove dirt and oil.",
-    "token_value": 2,
-    "completions": 0,
-    "category_id": "-OJik-zAKSNvrPy5Vobs",
-    "image": "https://hips.hearstapps.com/hmg-prod/images/day-cleanser-64ecc7489f485.png?crop=1xw:1xh;center,top&resize=640:*"
-  },
-  "-OJiixF8HALTlIYsHbhV": {
-    "firebaseKey": "-OJiixF8HALTlIYsHbhV",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Respond to Emails",
-    "description": "Check your inbox and reply to important emails.",
-    "token_value": 10,
-    "completions": 0,
-    "category_id": "-OJik-zBMe3LR7w2ce5E",
-    "image": "https://static1.squarespace.com/static/51a615dbe4b0643b1caad822/t/5ad35fb31ae6cfce64ac3876/1523802059790/email_message.jpg?format=1500w"
+      "category_id": "-OJik-zAKSNvrPy5Vobr",
+      "completions": 4,
+      "description": "Dispose of household waste by taking out the trash.",
+      "firebaseKey": "-OJiixF5cMrg8MKB1v6T",
+      "image": "https://www.firstplaceforhealth.com/wp-content/uploads/2019/05/TAKING-OUT-THE-TRASH-AdobeStock_270126462-scaled-300x300_c.jpeg",
+      "name": "Take out Trash",
+      "token_value": 5,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
   },
   "-OJiixF9K6gkE-PEuHni": {
-    "firebaseKey": "-OJiixF9K6gkE-PEuHni",
-    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
-    "name": "Write SOAP Note",
-    "description": "Document client progress using the SOAP note format.",
-    "token_value": 3,
-    "completions": 0,
-    "category_id": "-OJik-zBMe3LR7w2ce5E",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9PMj8WrbWwcMqs820cFXE376YB6fZNaCu8w&s"
+      "category_id": "-OJik-zBMe3LR7w2ce5E",
+      "completions": 0,
+      "description": "Document client progress using the SOAP note format.",
+      "firebaseKey": "-OJiixF9K6gkE-PEuHni",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9PMj8WrbWwcMqs820cFXE376YB6fZNaCu8w&s",
+      "name": "Write SOAP Note",
+      "token_value": 3,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OJiixF7EHj3VYEodcoP": {
+      "category_id": "-OJik-zAKSNvrPy5Vobs",
+      "completions": 0,
+      "description": "Cleanse your face with a gentle wash to remove dirt and oil.",
+      "firebaseKey": "-OJiixF7EHj3VYEodcoP",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/day-cleanser-64ecc7489f485.png?crop=1xw:1xh;center,top&resize=640:*",
+      "name": "Wash Face",
+      "token_value": 2,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OKtaN5YSigbzZmvs188": {
+      "category_id": "-OKsKa0snNqUW1kisyjS",
+      "completions": 1,
+      "description": "yay you did it!",
+      "firebaseKey": "-OKtaN5YSigbzZmvs188",
+      "image": "https://miro.medium.com/v2/resize:fit:1400/0*95sbu7UzSicCAUlR.png",
+      "name": "Submit FE Capstone MVP",
+      "token_value": 2000,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OJiixF8HALTlIYsHbhV": {
+      "category_id": "-OJik-zBMe3LR7w2ce5E",
+      "completions": 0,
+      "description": "Check your inbox and reply to important emails.",
+      "firebaseKey": "-OJiixF8HALTlIYsHbhV",
+      "image": "https://static1.squarespace.com/static/51a615dbe4b0643b1caad822/t/5ad35fb31ae6cfce64ac3876/1523802059790/email_message.jpg?format=1500w",
+      "name": "Respond to Emails",
+      "token_value": 10,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OJiixF2FYQjASQNxfdV": {
+      "category_id": "-OJik-zAKSNvrPy5Vobs",
+      "completions": 0,
+      "description": "Maintain oral hygiene by brushing your teeth for at least two minutes.",
+      "firebaseKey": "-OJiixF2FYQjASQNxfdV",
+      "image": "https://www.colgate.com/content/dam/cp-sites/oral-care/oral-care-center/en-in/occ/basics/brushing-and-flossing/how-long-should-you-brush-your-teeth-for.jpg",
+      "name": "Brush Teeth",
+      "token_value": 2,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OJiixF6wpGXLdRYZXrf": {
+      "category_id": "-OJik-zAKSNvrPy5Vobr",
+      "completions": 0,
+      "description": "Clean dishes by washing them with soap and water.",
+      "firebaseKey": "-OJiixF6wpGXLdRYZXrf",
+      "image": "https://assets.epicurious.com/photos/582a339cb3446c1b212b9d5e/master/pass/washing-dishes-111416.jpg",
+      "name": "Wash Dishes",
+      "token_value": 15,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OKsLWiAi29UuzCI5rEn": {
+      "category_id": "-OKsKa0snNqUW1kisyjS",
+      "completions": 2,
+      "description": "for testing purposes! now that i'm actually using this app for myself (for real, it got me to take the trash out!), I need a task worth a small amt to use for testing",
+      "firebaseKey": "-OKsLWiAi29UuzCI5rEn",
+      "image": "https://static.vecteezy.com/system/resources/previews/026/301/443/non_2x/successful-completion-of-business-task-done-sticker-in-flat-design-check-mark-with-pencil-concept-of-completed-goal-or-task-vector.jpg",
+      "name": "complete this task",
+      "token_value": 1,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OJiixF321HluGPesB6H": {
+      "category_id": "-OJik-zAKSNvrPy5Vobr",
+      "completions": 0,
+      "description": "Neatly arrange your bed by straightening sheets and fluffing pillows.",
+      "firebaseKey": "-OJiixF321HluGPesB6H",
+      "image": "https://www.bhg.com/thmb/FbjYud-O2DrcJ_PNWbSL10wqHg0=/4000x2700/filters:no_upscale()/bhg-how-to-make-a-bed-hero-2_9usRPbXh4ghAbU7COY5zVV-6a38acd4e0b3423680f7a418a57bf8c5.jpg",
+      "name": "Make Bed",
+      "token_value": 8,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OJiixF7EHj3VYEodcoO": {
+      "category_id": "-OJik-zBMe3LR7w2ce5E",
+      "completions": 0,
+      "description": "Log your work hours and submit the timesheet for approval.",
+      "firebaseKey": "-OJiixF7EHj3VYEodcoO",
+      "image": "https://blog-cdn.everhour.com/blog/wp-content/uploads/2019/09/3b2rz0.jpg",
+      "name": "Submit Timesheet",
+      "token_value": 2,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
+  },
+  "-OJiixF321HluGPesB6I": {
+      "category_id": "-OJik-zAKSNvrPy5Vobr",
+      "completions": 0,
+      "description": "Organize clean clothes by folding them neatly and putting them away.",
+      "firebaseKey": "-OJiixF321HluGPesB6I",
+      "image": "https://tommysudslaundry.com/wp-content/uploads/2024/08/sarah-brown-oa7pqzmmhua-unsplash_2_1.jpg__1200x800_q85_crop_subsampling-2_upscale.jpg",
+      "name": "Fold Laundry",
+      "token_value": 25,
+      "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2"
   }
 }

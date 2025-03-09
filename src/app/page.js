@@ -31,7 +31,7 @@ function TasksPage() {
   };
 
   // function to refresh user object and tasks.
-  // refreshing tasks triggers a change on the taskObj's so that useEffect in TaskCard will re-render (its' depenency array is taskCard)
+  // refreshing tasks triggers a change on the taskObj's so that useEffect in TaskCard will re-render (its' depenency array is taskObj)
   const getUserObjAndTasks = () => {
     getUser(user.uid).then((data) => setUserObj(data));
     getTasks(user.uid).then((data) => setTasks(data));
