@@ -59,8 +59,7 @@ export default function TaskForm({ obj = initialState }) {
       updateTask(formInput).then(() => router.push(`/`));
     } else {
       // CREATE
-      const payload = { ...formInput, uid: user.uid };
-      console.log('Submitting payload:', payload); // Debugging step
+      const payload = { ...formInput, uid: user.uid, completions: 0 };
       createTask(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateTask(patchPayload).then(() => {
