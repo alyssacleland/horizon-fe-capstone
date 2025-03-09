@@ -91,7 +91,7 @@ export default function NavBar() {
             {/* lifetime tokens */}
             <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Lifetime Tokens Earned</Tooltip>}>
               <span style={{ display: 'flex', alignItems: 'center' }}>
-                <FontAwesomeIcon className={animationClass} icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
+                <FontAwesomeIcon icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
                 <p style={{ fontSize: '1.1rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
               </span>
             </OverlayTrigger>
