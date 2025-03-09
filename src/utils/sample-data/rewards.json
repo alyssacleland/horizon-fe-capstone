@@ -1,0 +1,47 @@
+{
+  "-OKsYS9sKq7amLTEaLWC": {
+    "firebaseKey": "-OKsYS9sKq7amLTEaLWC",
+    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
+    "name": "New Shoes",
+    "token_value": 800,
+    "image": "https://i5.walmartimages.com/seo/mtvxesu-Womens-Sandals-Women-s-Arch-Support-Sandals-Shoes-Ladies-Beach-Orthopedic-Sandals-Summer-Non-slip-Causal-Sandals-10-Dollar-Items-Beige-4-5_222fa419-599b-4957-9c0c-765683e476b9.ba6ed8060e3827a2d91b5f4fafc131e4.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+    "description": "Pick out a brand-new pair of shoes of your choice! Spend up to $60.",
+    "claims": 0
+  },
+  "-OKsYS9tQ5s4Pvp5_wD8": {
+    "firebaseKey": "-OKsYS9tQ5s4Pvp5_wD8",
+    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
+    "name": "Vacation",
+    "token_value": 10000,
+    "image": "https://imageio.forbes.com/specials-images/imageserve/635c8976570478eef5876e03/Couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island/960x0.jpg?format=jpg&width=960",
+    "description": "Enjoy a relaxing getaway—destination and duration to be planned! Spend up to $800.",
+    "claims": 0
+  },
+  "-OKsYS9uLxX8e_pz-s9N": {
+    "firebaseKey": "-OKsYS9uLxX8e_pz-s9N",
+    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
+    "name": "Extra Night Out",
+    "token_value": 400,
+    "image": "https://assets.westchestermagazine.com/wp-content/uploads/2023/10/westch_image001_1956229.jpg",
+    "description": "Treat yourself to an extra night out—dinner, drinks, or fun activities!",
+    "claims": 0
+  },
+  "-OKsYS9uLxX8e_pz-s9O": {
+    "firebaseKey": "-OKsYS9uLxX8e_pz-s9N",
+    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
+    "name": "Massage Appointment",
+    "token_value": 1200,
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.sih.net%2Fservices%2Frehabilitation%2Fmassage-therapy&psig=AOvVaw23zrsZOXsL6lGfR0SfgnoD&ust=1741574521377000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLjbh-78-4sDFQAAAAAdAAAAABAE",
+    "description": "Book a soothing massage to relax and unwind!",
+    "claims": 0
+  },
+  "-OKsYS9vd5pE3u0642-O": {
+    "firebaseKey": "-OKsYS9vd5pE3u0642-O",
+    "uid": "GAcrggqsFrQd8XzljQZxokjVNSq2",
+    "name": "New Outfit",
+    "token_value": 1000,
+    "image": "https://img-cdn.inc.com/image/upload/f_webp,q_auto,c_fit/images/panoramic/getty_522735456_249841.jpg",
+    "description": "Spend up to $100 on a new outfit!",
+    "claims": 0
+  }
+}
