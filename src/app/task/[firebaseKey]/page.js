@@ -38,8 +38,7 @@ export default function TaskDetailsPage({ params }) {
     });
   }, [taskDetails]);
 
-  // FOR DELETE, WE NEED TO REMOVE THE TASK AND HAVE THE VIEW RERENDER,
-  // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE TASKS
+  // delete and route back to all tasks page
   const deleteThisTask = () => {
     if (window.confirm(`Delete ${taskDetails.name}?`)) {
       deleteTask(taskDetails.firebaseKey).then(() => {
