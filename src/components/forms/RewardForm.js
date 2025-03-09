@@ -25,7 +25,7 @@ const initialState = {
 
 export default function RewardForm({ obj = initialState }) {
   // define state for formInput and define router and user
-  const [formInput, setFormInput] = useState({});
+  const [formInput, setFormInput] = useState(obj);
   const router = useRouter();
   const { user } = useAuth();
 

@@ -123,31 +123,31 @@ export default function RewardDetailsPage({ params }) {
               height: 'auto',
               maxHeight: '300px',
             }}
-            src={rewardObj.image}
+            src={rewardObj?.image}
           />
 
           {/* reward details to the right of the image */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '100%' }}>
             {/* reward name */}
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-              <h1 style={{ fontSize: '1.6rem', marginRight: '8px' }}>{rewardObj.name}</h1>
+              <h1 style={{ fontSize: '1.6rem', marginRight: '8px' }}>{rewardObj?.name}</h1>
 
               {/* tokens */}
               <FontAwesomeIcon icon={faCoins} style={{ color: '#be8e00', fontSize: '1.3rem' }} />
-              <h1 style={{ fontSize: '1.6rem', margin: '2px', color: '#be8e00' }}>{rewardObj.token_value}</h1>
+              <h1 style={{ fontSize: '1.6rem', margin: '2px', color: '#be8e00' }}>{rewardObj?.token_value}</h1>
             </div>
 
             {/* DESCRIPTION */}
             <p style={{ marginBottom: '10px' }}>{rewardObj?.description}</p>
 
             {/* CLAIMS */}
-            <h5 style={{ marginTop: '20px', marginBottom: '0' }}>Claimed {rewardObj.claims} times.</h5>
+            <h5 style={{ marginTop: '20px', marginBottom: '0' }}>Claimed {rewardObj?.claims} times.</h5>
 
             {/* BUTTONS */}
             <div className="" style={{ marginTop: '90px' }}>
               {/* Edit button */}
               <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${rewardObj.firebaseKey}`}>Edit</Tooltip>}>
-                <Link href={`/reward/edit/${rewardObj.firebaseKey}`} passHref>
+                <Link href={`/reward/edit/${rewardObj?.firebaseKey}`} passHref>
                   <FontAwesomeIcon className="m-2 fa-2x" icon={faPenToSquare} style={{ color: 'grey', fontSize: '1.6rem' }} />
                 </Link>
               </OverlayTrigger>
