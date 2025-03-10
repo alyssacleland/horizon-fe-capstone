@@ -12,6 +12,7 @@ import TaskCard from '../components/TaskCard';
 import { getTasks, getCategoryTasks } from '../api/taskData';
 import { getCategories } from '../api/categoryData';
 import { getUser } from '../api/userData';
+import Tokens from '../components/Tokens';
 
 function TasksPage() {
   // set state for tasks
@@ -73,6 +74,9 @@ function TasksPage() {
         margin: '0 auto',
       }}
     >
+      {/* HOPEFULLY JUST TEMPORARY DISPLAYING THESE HERE */}
+      <Tokens userObj={userObj} />
+
       <h2 style={{ marginBottom: '30px' }}>{user.displayName}&apos;s Tasks:</h2>
       <div className="d-flex align-items-center justify-content-center" style={{ gap: '10px', marginBottom: '20px' }}>
         {/* Create new task */}
