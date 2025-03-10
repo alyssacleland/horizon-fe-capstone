@@ -19,7 +19,7 @@ export default function NavBar() {
     getUser(user.uid).then((data) => {
       setUserObj(data);
     });
-  }, [userObj]);
+  }, [user.uid]);
 
   useEffect(() => {
     getUser(user.uid).then((data) => {
@@ -81,18 +81,18 @@ export default function NavBar() {
               Rewards
             </Link>
             {/*  current tokens */}
-            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Current Token Balance</Tooltip>}>
-              <span style={{ display: 'flex', alignItems: 'center' }}>
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Current Tokens</Tooltip>}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <FontAwesomeIcon className={animationClass} icon={faCoins} style={{ color: '#be8e00', fontSize: '1.3rem', marginLeft: '10px' }} />
-                <p style={{ fontSize: '1.1rem', margin: '2px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
+                <p style={{ fontSize: '1.6rem', margin: '2px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
               </span>
             </OverlayTrigger>
 
             {/* lifetime tokens */}
-            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Lifetime Tokens Earned</Tooltip>}>
-              <span style={{ display: 'flex', alignItems: 'center' }}>
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Current Tokens</Tooltip>}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <FontAwesomeIcon icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
-                <p style={{ fontSize: '1.1rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
+                <p style={{ fontSize: '1.6rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
               </span>
             </OverlayTrigger>
           </Nav>
