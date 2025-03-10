@@ -16,7 +16,7 @@ export default function Tokens({ userObj }) {
 
   // ANIMATION
   useEffect(() => {
-    if (!userObj[0]) return undefined; // Prevent running if userObj isn't ready
+    if (!userObj) return undefined; // Prevent running if userObj isn't ready
     // If the user's current tokens change, add an animation class:
     if (userObj[0]?.current_tokens > prevCurrentTokens) {
       // If the user's current tokens increase, add a bounce animation
@@ -42,20 +42,20 @@ export default function Tokens({ userObj }) {
   }, [userObj[0]?.current_tokens]);
 
   return (
-    <div>
+    <div style={{ display: 'flex', gap: '4px' }}>
       {/*  current tokens */}
-      <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Current Tokens</Tooltip>}>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+      <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj[0]?.firebaseKey}`}>Current Token Balance</Tooltip>}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
           <FontAwesomeIcon className={animationClass} icon={faCoins} style={{ color: '#be8e00', fontSize: '1.3rem', marginLeft: '10px' }} />
-          <p style={{ fontSize: '1.6rem', margin: '2px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
+          <p style={{ fontSize: '1rem', margin: '0px', color: '#be8e00' }}>{userObj[0]?.current_tokens}</p>
         </span>
       </OverlayTrigger>
 
       {/* lifetime tokens */}
-      <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj.firebaseKey}`}>Current Tokens</Tooltip>}>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+      <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj[0]?.firebaseKey}`}>Lifetime Tokens Earned</Tooltip>}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
           <FontAwesomeIcon icon={faCoins} style={{ color: '#9028ff', fontSize: '1.3rem', marginLeft: '10px' }} />
-          <p style={{ fontSize: '1.6rem', margin: '2px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
+          <p style={{ fontSize: '1rem', margin: '0px', color: '#9028ff' }}>{userObj[0]?.lifetime_tokens}</p>
         </span>
       </OverlayTrigger>
     </div>
