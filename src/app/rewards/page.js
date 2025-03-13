@@ -25,7 +25,7 @@ export default function RewardsPage() {
   };
 
   // function to refresh user object and rewards
-  // refreshing rewards triggers a change on the rewardObj so that useEffect in RewardCard will re-render (its' dependency array is rewardObj TODO: implement this in RewardCard!)
+  // refreshing rewards triggers a change on the rewardObj so that useEffect in RewardCard will re-render (its' dependency array is rewardObj)
   const getUserObjAndRewards = () => {
     getUser(user.uid).then((data) => setUserObj(data));
     getRewards(user.uid).then(setRewards);

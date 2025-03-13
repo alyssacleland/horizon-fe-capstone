@@ -1,28 +1,33 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import Image from 'next/image';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { signOut } from '../utils/auth';
-// import { getUser } from '../api/userData';
-// import { useAuth } from '../utils/context/authContext';
-// import Tokens from './Tokens';
+import { getUser } from '../api/userData';
+import { useAuth } from '../utils/context/authContext';
+import Tokens from './Tokens';
 
 export default function NavBar() {
-  // const [userObj, setUserObj] = useState([]);
-  // const { user } = useAuth();
+  const [userObj, setUserObj] = useState([]);
+  const { user } = useAuth();
 
-  // if (!user) return null;
+  // Fetch user data when component mounts or when user UID changes
+  useEffect(() => {
+    if (user?.uid) {
+      getUser(user.uid).then(setUserObj);
+    }
+  }, [user?.uid]);
 
-  // const getTheUser = () => {
-  //   getUser(user.uid).then(setUserObj);
-  // };
+  // Function to refresh user data automatically
+  const refreshUser = async () => {
+    const updatedUser = await getUser(user.uid);
+    setUserObj(updatedUser);
+  };
 
-  // useEffect(() => {
-  //   getTheUser();
-  // }, []);
+  // Expose refresh function globally (for updates in other components)
+  useEffect(() => {
+    window.refreshUser = refreshUser;
+  }, []);
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
@@ -33,11 +38,10 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
             <Link className="nav-link" href="/">
               Home
             </Link>
-            <Link className="nav-link" href="/">
+            <Link className="nav-link" href="/tasks">
               Tasks
             </Link>
             <Link className="nav-link" href="/categories">
@@ -49,7 +53,7 @@ export default function NavBar() {
             <Link className="nav-link" href="/rewards">
               Rewards
             </Link>
-            {/* <Tokens userObj={userObj} /> */}
+            <Tokens userObj={userObj} />
           </Nav>
 
           <Button variant="danger" onClick={signOut}>

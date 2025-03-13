@@ -75,6 +75,7 @@ export default function TaskCard({ taskObj, onUpdate, onComplete }) {
       setUserObj(userPayload);
       // run the onComplete function from the parent component. it should update the user object in the parent component
       onComplete();
+      window.refreshUser(); // hacky way to refresh user object in the navbar
     });
 
     // update the task obj in firebase with completions patched
