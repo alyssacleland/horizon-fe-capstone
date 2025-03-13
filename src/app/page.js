@@ -65,68 +65,70 @@ function TasksPage() {
   }, [user.uid]); // only run when user.uid changes
 
   return (
-    <div
-      className="text-center my-4"
-      style={{
-        height: '90px',
-        padding: '0px',
-        maxWidth: '1100px',
-        margin: '0 auto',
-      }}
-    >
-      {/* HOPEFULLY JUST TEMPORARY DISPLAYING THESE HERE */}
+    <>
+      {/* TOKENS */}
       <Tokens userObj={userObj} />
 
-      <h2 style={{ marginBottom: '30px' }}>{user.displayName}&apos;s Tasks:</h2>
-      <div className="d-flex align-items-center justify-content-center" style={{ gap: '10px', marginBottom: '20px' }}>
-        {/* Create new task */}
-        <Link href="/task/new" passHref>
-          <Button variant="primary">New Task</Button>
-        </Link>
-        {/* select categories menu */}
-        <Select
-          style={{ maxWidth: '300px' }}
-          options={categories}
-          isMulti
-          value={selectedCategories}
-          onChange={setSelectedCategories}
-          className="basic-multi-select"
-          classNamePrefix="select"
-          placeholder="Select Categories..."
-          styles={{
-            control: (provided) => ({
-              ...provided,
-              color: 'black',
-            }),
-            singleValue: (provided) => ({
-              ...provided,
-              color: 'black',
-            }),
-            multiValue: (provided) => ({
-              ...provided,
-              color: 'black',
-            }),
-            input: (provided) => ({
-              ...provided,
-              color: 'black',
-            }),
-            menu: (provided) => ({
-              ...provided,
-              color: 'black',
-            }),
-            option: (provided) => ({
-              ...provided,
-              color: 'black',
-            }),
-          }}
-        />
-      </div>
+      <div
+        className="text-center my-4"
+        style={{
+          height: '90px',
+          padding: '0px',
+          maxWidth: '1100px',
+          margin: '0 auto',
+        }}
+      >
+        <h2 style={{ marginBottom: '30px' }}>{user.displayName}&apos;s Tasks:</h2>
+        <div className="d-flex align-items-center justify-content-center" style={{ gap: '10px', marginBottom: '20px' }}>
+          {/* Create new task */}
+          <Link href="/task/new" passHref>
+            <Button variant="primary">New Task</Button>
+          </Link>
+          {/* select categories menu */}
+          <Select
+            style={{ maxWidth: '300px' }}
+            options={categories}
+            isMulti
+            value={selectedCategories}
+            onChange={setSelectedCategories}
+            className="basic-multi-select"
+            classNamePrefix="select"
+            placeholder="Select Categories..."
+            styles={{
+              control: (provided) => ({
+                ...provided,
+                color: 'black',
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+                color: 'black',
+              }),
+              multiValue: (provided) => ({
+                ...provided,
+                color: 'black',
+              }),
+              input: (provided) => ({
+                ...provided,
+                color: 'black',
+              }),
+              menu: (provided) => ({
+                ...provided,
+                color: 'black',
+              }),
+              option: (provided) => ({
+                ...provided,
+                color: 'black',
+              }),
+            }}
+          />
+        </div>
 
-      {/* tasks cards or text if no tasks */}
-      <div className="d-flex flex-wrap align-itmes-center mx-auto" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '600px', maxWidth: '1500px' }}>
-        {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndTasks} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
+        {/* tasks cards or text if no tasks */}
+        <div className="d-flex flex-wrap align-itmes-center mx-auto" style={{ justifyContent: 'center', gap: '20px', overflowY: 'auto', maxHeight: '600px', maxWidth: '1500px' }}>
+          {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndTasks} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default TasksPage;

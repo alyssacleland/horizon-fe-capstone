@@ -1,28 +1,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import Image from 'next/image';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { signOut } from '../utils/auth';
-import { getUser } from '../api/userData';
-import { useAuth } from '../utils/context/authContext';
-import Tokens from './Tokens';
+// import { getUser } from '../api/userData';
+// import { useAuth } from '../utils/context/authContext';
+// import Tokens from './Tokens';
 
 export default function NavBar() {
-  const [userObj, setUserObj] = useState([]);
-  const { user } = useAuth();
+  // const [userObj, setUserObj] = useState([]);
+  // const { user } = useAuth();
 
   // if (!user) return null;
 
-  const getTheUser = () => {
-    getUser(user.uid).then(setUserObj);
-  };
+  // const getTheUser = () => {
+  //   getUser(user.uid).then(setUserObj);
+  // };
 
-  useEffect(() => {
-    getTheUser();
-  }, []);
+  // useEffect(() => {
+  //   getTheUser();
+  // }, []);
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
@@ -49,7 +49,7 @@ export default function NavBar() {
             <Link className="nav-link" href="/rewards">
               Rewards
             </Link>
-            <Tokens userObj={userObj} />
+            {/* <Tokens userObj={userObj} /> */}
           </Nav>
 
           <Button variant="danger" onClick={signOut}>
