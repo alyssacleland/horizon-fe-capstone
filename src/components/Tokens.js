@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons';
@@ -11,14 +13,25 @@ export default function Tokens({ userObj }) {
   const [animationClass, setAnimationClass] = useState('');
 
   useEffect(() => {
-    setPrevCurrentTokens(userObj[0]?.current_tokens || 0);
+    setPrevCurrentTokens(userObj[0]?.current_tokens);
   }, []);
+
+  const isFirstRender = useRef(true); // Ref to track the first render
 
   // ANIMATION
   useEffect(() => {
-    if (!userObj) return undefined; // Prevent running if userObj isn't ready
+    // Skip animation logic on first render
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (!userObj || !userObj[0]) {
+      return; // Prevent running if userObj isn't ready
+    }
     // If the user's current tokens change, add an animation class:
     if (userObj[0]?.current_tokens > prevCurrentTokens) {
+      console.log('current tokens increased');
       // If the user's current tokens increase, add a bounce animation
       setAnimationClass('fa-bounce');
       // If the user's current tokens decrease, add a fade animation:
@@ -36,13 +49,14 @@ export default function Tokens({ userObj }) {
     setPrevCurrentTokens(userObj[0]?.current_tokens);
 
     // Clear the timer
+    // eslint-disable-next-line consistent-return
     return () => {
       clearTimeout(timer);
     }; // clearTimeout(timeoutID): method clears a timer set with the setTimeout() method
-  }, [userObj[0]?.current_tokens]);
+  }, [userObj]);
 
   return (
-    <div style={{ display: 'flex', gap: '4px' }}>
+    <div style={{ display: 'flex', gap: '4px', position: 'fixed', marginLeft: '770px', top: '33px' }}>
       {/*  current tokens */}
       <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj[0]?.firebaseKey}`}>Current Token Balance</Tooltip>}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
