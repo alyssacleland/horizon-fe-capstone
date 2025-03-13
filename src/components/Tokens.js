@@ -31,7 +31,6 @@ export default function Tokens({ userObj }) {
     }
     // If the user's current tokens change, add an animation class:
     if (userObj[0]?.current_tokens > prevCurrentTokens) {
-      console.log('current tokens increased');
       // If the user's current tokens increase, add a bounce animation
       setAnimationClass('fa-bounce');
       // If the user's current tokens decrease, add a fade animation:

@@ -65,11 +65,7 @@ function TasksPage() {
   }, [user.uid]); // only run when user.uid changes
 
   return (
-    <>
-      {/* TOKENS */}
-      <Tokens userObj={userObj} />
-
-      <div
+    <div
         className="text-center my-4"
         style={{
           height: '90px',
@@ -128,7 +124,6 @@ function TasksPage() {
           {tasks.length > 0 ? tasks.map((task) => <TaskCard key={task.firebaseKey} taskObj={task} onUpdate={getAllTheTasks} onComplete={getUserObjAndTasks} />) : <h2>No Tasks Yet, create a task to get started!</h2>}
         </div>
       </div>
-    </>
   );
 }
 export default TasksPage;

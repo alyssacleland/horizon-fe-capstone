@@ -75,6 +75,8 @@ export default function RewardCard({ rewardObj, onUpdate, onClaim }) {
       }, 8000);
       // update the user object in state
       setUserObj(userPayload);
+
+      window.refreshUser(); // hacky way to refresh user object in the navbar
       // run the onComplete function from the parent component. it should update the user object in the parent component
       onClaim();
     });

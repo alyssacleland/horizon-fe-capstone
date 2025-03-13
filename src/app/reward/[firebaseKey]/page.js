@@ -87,6 +87,8 @@ export default function RewardDetailsPage({ params }) {
 
     // update the user object in firebase
     updateUser(userPayload).then(() => {
+      window.refreshUser(); // hacky way to refresh user object in the navbar
+
       // show success message
       setSuccessMessage(`Reward Claimed! You spent ${rewardObj.token_value} tokens, ENJOY!`);
       setTimeout(() => {

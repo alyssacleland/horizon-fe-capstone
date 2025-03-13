@@ -14,7 +14,6 @@ import { useAuth } from '@/utils/context/authContext';
 import { getUser, updateUser } from '@/api/userData';
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
 import { useRouter } from 'next/navigation';
-import Tokens from '../../../components/Tokens';
 
 export default function TaskDetailsPage({ params }) {
   const { firebaseKey } = params;
@@ -101,6 +100,8 @@ export default function TaskDetailsPage({ params }) {
 
     // update the user object in firebase
     updateUser(userPayload).then(() => {
+      window.refreshUser(); // hacky way to refresh user object in the navbar
+
       // show success message
       setSuccessMessage(`Task Completed, you earned ${taskDetails.token_value} tokens!`);
       setTimeout(() => {
@@ -118,10 +119,7 @@ export default function TaskDetailsPage({ params }) {
 
   return (
     <>
-      <div>
-        {/* TOKENS */}
-        <Tokens userObj={userObj} />
-      </div>
+      <div />
       <div style={{ marginTop: '20px' }}>
         {/* image and task details */}
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', marginLeft: '650px' }}>
