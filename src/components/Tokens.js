@@ -55,7 +55,7 @@ export default function Tokens({ userObj }) {
   }, [userObj]);
 
   return (
-    <div style={{ display: 'flex', gap: '4px', position: 'fixed', marginLeft: '770px', top: '33px' }}>
+    <div style={{ display: 'flex', gap: '4px' }}>
       {/*  current tokens */}
       <OverlayTrigger placement="bottom" overlay={<Tooltip id={`tooltip-${userObj[0]?.firebaseKey}`}>Current Token Balance</Tooltip>}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>

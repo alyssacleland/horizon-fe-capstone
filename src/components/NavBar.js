@@ -38,18 +38,18 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link className="nav-link" href="/">
+            {/* <Link className="nav-link" href="/">
               Home
-            </Link>
-            <Link className="nav-link" href="/tasks">
+            </Link> */}
+            <Link className="nav-link" href="/">
               Tasks
             </Link>
             <Link className="nav-link" href="/categories">
               Categories
             </Link>
-            <Link className="nav-link" href="/routines">
+            {/* <Link className="nav-link" href="/routines">
               Routines
-            </Link>
+            </Link> */}
             <Link className="nav-link" href="/rewards">
               Rewards
             </Link>
