@@ -29,11 +29,17 @@ const useUser = () => {
                 return updateUser(patchPayload).then(() => {
                   // wait for updateUser to complete
                   setUserData(patchPayload); // set userData after updateUser completes
+
+                  // ensure loading is false only after setting userData
+                  setLoading(false); // Stop loading when done
                 });
               });
             } else {
               // *****  IF USER ALREADY EXISTS, SET USER DATA FROM EXISTING USER *****
               setUserData(existingUser[0]);
+
+              // Only stop loading when userData is set
+              setLoading(false); // Stop loading when done
             }
             // *****  AFTER EITHER CREATING OR UPDATING USER DATA, STOP LOADING. (SET LOADING TO FALSE WHEN USER DATA IS AVAILABLE) *****
             // the loading boolean is used in the ViewDirector to show a loading spinner while user data is being fetched
