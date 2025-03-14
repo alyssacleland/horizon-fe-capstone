@@ -8,6 +8,8 @@ const useUser = () => {
   const [loading, setLoading] = useState(true); // used to indicate whether the user data is currently being fetched
 
   useEffect(() => {
+    setUserData(null); // Reset user data when user changes
+    setLoading(true); // Reset loading state
     const handleUser = () => {
       if (user) {
         // If user is available (logged in)
