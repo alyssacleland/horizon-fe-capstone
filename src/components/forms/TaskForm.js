@@ -117,7 +117,7 @@ export default function TaskForm({ obj = initialState }) {
           </Form.Label>
         </Form.Group>
         <FloatingLabel controlId="floatingInput3" label="Enter Token Value" className="mb-3">
-          <Form.Control type="text" placeholder="Enter Token Value" name="token_value" value={formInput.token_value} onChange={handleChange} required />
+          <Form.Control type="number" placeholder="Enter Token Value" name="token_value" value={formInput.token_value} onChange={handleChange} required min="0" />
         </FloatingLabel>
 
         {/* image input */}

@@ -96,7 +96,7 @@ export default function RewardForm({ obj = initialState }) {
           </Form.Label>
         </Form.Group>
         <FloatingLabel controlId="floatingInput3" label="Enter Token Cost" className="mb-3">
-          <Form.Control type="text" placeholder="Enter Token Cost" name="token_value" value={formInput.token_value} onChange={handleChange} required />
+          <Form.Control type="number" placeholder="Enter Token Cost" name="token_value" value={formInput.token_value} onChange={handleChange} required min="0" />
         </FloatingLabel>
 
         {/* image input */}
