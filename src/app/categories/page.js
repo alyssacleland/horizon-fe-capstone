@@ -14,7 +14,10 @@ export default function CategoriesPage() {
   const [loading, setLoading] = useState(true);
 
   const getAllTheCategories = () => {
-    getCategories(user.uid).then((data) => setCategories(data), setLoading(false));
+    getCategories(user.uid).then((data) => {
+      setCategories(data);
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
@@ -32,11 +35,15 @@ export default function CategoriesPage() {
       </Link>
 
       <div className="d-flex flex-wrap justify-content-center align-items-center mx-auto" style={{ display: 'flex', gap: '20px', overflowY: 'auto', maxHeight: '750px' }}>
-        {categories.map((category) => (
-          <div key={category.firebaseKey} className="d-flex justify-content-center">
-            <CategoryCard key={category.firebaseKey} categoryObj={category} onUpdate={getAllTheCategories} />
-          </div>
-        ))}
+        {categories.length > 0 ? (
+          categories.map((category) => (
+            <div key={category.firebaseKey} className="d-flex justify-content-center">
+              <CategoryCard key={category.firebaseKey} categoryObj={category} onUpdate={getAllTheCategories} />
+            </div>
+          ))
+        ) : (
+          <h2>No categories yet, create a category to get started!</h2>
+        )}
       </div>
     </div>
   );
