@@ -14,6 +14,7 @@ import { useAuth } from '@/utils/context/authContext';
 import { getUser, updateUser } from '@/api/userData';
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
 import { useRouter } from 'next/navigation';
+import LoadingComponent from '../../../components/LoadingComponent';
 
 export default function TaskDetailsPage({ params }) {
   const { firebaseKey } = params;
@@ -23,10 +24,14 @@ export default function TaskDetailsPage({ params }) {
   const [taskDetails, setTaskDetails] = useState({});
   const [taskObj, setTaskObj] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // for use in incrementUserTokens
+  const [pageLoading, setPageLoading] = useState(true); // for loading page only after data is fetched
 
   useEffect(() => {
-    getTaskDetails(firebaseKey).then((data) => setTaskDetails(data));
+    getTaskDetails(firebaseKey).then((data) => {
+      setTaskDetails(data);
+      setPageLoading(false);
+    });
   }, [firebaseKey]);
 
   useEffect(() => {
@@ -117,6 +122,7 @@ export default function TaskDetailsPage({ params }) {
     });
   };
 
+  if (pageLoading) return <LoadingComponent />;
   return (
     <>
       <div />

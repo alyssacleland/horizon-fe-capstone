@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import { getUser, updateUser } from '../../../api/userData';
 import { deleteReward, getSingleReward, updateReward } from '../../../api/rewardData';
 import { useAuth } from '../../../utils/context/authContext';
+import LoadingComponent from '../../../components/LoadingComponent';
 
 export default function RewardDetailsPage({ params }) {
   // access reward firebase key
@@ -21,6 +22,7 @@ export default function RewardDetailsPage({ params }) {
   const [rewardObj, setRewardObj] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // for access to uid
   const { user } = useAuth();
@@ -30,7 +32,10 @@ export default function RewardDetailsPage({ params }) {
 
   // get and set reward obj on initial mount AND any time user obj changes (so updating tokens (from claiming reward) triggers this & updates claims on rewardObj)
   useEffect(() => {
-    getSingleReward(firebaseKey).then((data) => setRewardObj(data));
+    getSingleReward(firebaseKey).then((data) => {
+      setRewardObj(data);
+      setLoading(false);
+    });
   }, [userObj]);
 
   // get and set user obj on initial mount AND any time reward obj changes (idk if this will create an infinite loop with the prev use effect?)
@@ -106,6 +111,8 @@ export default function RewardDetailsPage({ params }) {
       getUserObjAndReward();
     });
   };
+
+  if (loading) return <LoadingComponent />;
 
   return (
     <>

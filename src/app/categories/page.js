@@ -6,18 +6,22 @@ import { useAuth } from '@/utils/context/authContext';
 import { getCategories } from '@/api/categoryData';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
+import LoadingComponent from '../../components/LoadingComponent';
 
 export default function CategoriesPage() {
   const [categories, setCategories] = useState([]);
   const { user } = useAuth();
+  const [loading, setLoading] = useState(true);
 
   const getAllTheCategories = () => {
-    getCategories(user.uid).then(setCategories);
+    getCategories(user.uid).then((data) => setCategories(data), setLoading(false));
   };
 
   useEffect(() => {
     getAllTheCategories();
   }, []);
+
+  if (loading) return <LoadingComponent />;
 
   return (
     <div className="text-center my-4">

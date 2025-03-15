@@ -11,6 +11,7 @@ import TaskCard from '../../../components/TaskCard';
 import { viewCategoryDetails } from '../../../api/mergedData';
 import { getUser } from '../../../api/userData';
 import { useAuth } from '../../../utils/context/authContext';
+import LoadingComponent from '../../../components/LoadingComponent';
 
 export default function CategoryDetailsPage({ params }) {
   const { firebaseKey } = params; // destructuring the params object
@@ -19,6 +20,7 @@ export default function CategoryDetailsPage({ params }) {
   const [categoryDetails, setCategoryDetails] = useState({});
   const [userObj, setUserObj] = useState({});
   const { user } = useAuth();
+  const [loading, setLoading] = useState(true);
 
   // retrieve category details from firebase
   useEffect(() => {
@@ -27,14 +29,22 @@ export default function CategoryDetailsPage({ params }) {
 
   // function to get all tasks
   const getAllTheTasks = () => {
-    viewCategoryDetails(firebaseKey).then(setCategoryDetails);
+    setLoading(true);
+    viewCategoryDetails(firebaseKey).then((data) => {
+      setCategoryDetails(data);
+      setLoading(false);
+    });
   };
 
   // function to refresh user object and tasks.
   // refreshing tasks triggers a change on the taskObj's so that useEffect in TaskCard will re-render (its' depenency array is taskCard)
   const getUserObjAndDetails = () => {
-    getUser(user.uid).then((data) => setUserObj(data));
-    viewCategoryDetails(firebaseKey).then((data) => setCategoryDetails(data));
+    setLoading(true);
+    Promise.all([getUser(user.uid), viewCategoryDetails(firebaseKey)]).then(([userData, categoryData]) => {
+      setUserObj(userData);
+      setCategoryDetails(categoryData);
+      setLoading(false); // Set loading false after both API calls finish
+    });
   };
 
   // get user object and details on mount
@@ -45,6 +55,8 @@ export default function CategoryDetailsPage({ params }) {
   const tasksArray = categoryDetails.tasks || []; // if categoryDetails.tasks is undefined, set it to an empty array
 
   console.log(categoryDetails);
+
+  if (loading) return <LoadingComponent />;
 
   return (
     <div className="text-center my-4">
