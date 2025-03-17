@@ -1,7 +1,7 @@
 # My Horizon  [![Netlify Status][![Netlify Status](https://api.netlify.com/api/v1/badges/bed0c889-6935-40f2-99d7-e41095790b89/deploy-status)](https://app.netlify.com/sites/myhorizon/deploys)]
 
 <!-- description -->
-Horizon is a task management application designed to help users organize and track their daily tasks within categories. Users are motivated by earning tokens when they complete tasks.
+Horizon is a productivity app that helps users organize daily tasks into categories while staying motivated through a reward system.
 
 [View App](https://myhorizon.netlify.app/)
 
@@ -10,12 +10,11 @@ Horizon is designed for individuals who want to improve their productivity and s
 
 ## Features 
 
-- Create, read, update, and delete tasks and categories 
-- Assign number of tokens a task is worth
-- Earn tokens, updated in the navbar, when completing tasks
-- Assign tasks to categories and filter all tasks by categories
-- User specificity of tasks and categories
-- Track number of individual task completions in task details
+- Manage tasks, categories, and rewards – Create, update, and delete personalized tasks, categories, and rewards.
+-  Set token values – Assign tokens to tasks and determine reward costs.
+- Earn and spend tokens – Automatically updates in the navbar when completing tasks or claiming rewards.
+- Organize with categories – Assign tasks to categories and filter them easily.
+- Track progress – Monitor task completions and reward claims over time.
 
 ## Getting Started
 - Clone this repo
