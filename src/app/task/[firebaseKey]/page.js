@@ -69,7 +69,7 @@ export default function TaskDetailsPage({ params }) {
   //   getUserObjAndTasks();
   // }, []);
 
-  const incrementUserTokens = () => {
+  const incrementUserTokens = async () => {
     if (loading) return; // Prevent multiple clicks before previous update
 
     setLoading(true); // Set loading state to true before updating
@@ -104,7 +104,7 @@ export default function TaskDetailsPage({ params }) {
     const taskPayload = { ...taskObj, completions: updatedCompletions };
 
     // update the user object in firebase
-    updateUser(userPayload).then(() => {
+    await updateUser(userPayload).then(() => {
       window.refreshUser(); // hacky way to refresh user object in the navbar
 
       // show success message
