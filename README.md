@@ -1,7 +1,7 @@
 # My Horizon  [![Netlify Status][![Netlify Status](https://api.netlify.com/api/v1/badges/bed0c889-6935-40f2-99d7-e41095790b89/deploy-status)](https://app.netlify.com/sites/myhorizon/deploys)]
 
 <!-- description -->
-Horizon is a productivity app that motivates users to organize and complete tasks. Earn tokens by completing tasks and spend them on custom rewards. 
+Horizon is a productivity app that motivates users to organize and complete tasks. Earn tokens by completing tasks and spend tokens on custom rewards. 
 
 [View App](https://myhorizon.netlify.app/)
 
