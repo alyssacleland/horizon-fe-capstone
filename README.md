@@ -36,12 +36,12 @@ Horizon is designed for individuals who want to improve their productivity and s
 - [Presentation](https://docs.google.com/presentation/d/1LxLbIzkTIpkID4UUiEQD0t-kROrGo7rqwmP1Vx-BE4k/edit?usp=sharing)
 
 ## Project Screenshots 
-<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.37.51 AM.png">
-<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.38.00 AM.png">
-<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.38.12 AM.png">
-<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.40.06 AM.png">
-<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.44.18 AM.png">
-<img width="1148" alt="Your Alt" src="public/images/Screenshot 2025-03-04 at 12.44.32 AM.png">
+<img width="1148" alt="Your Alt" src="public/images/all tasks.png">
+<img width="1148" alt="Your Alt" src="public/images/task details.png">
+<img width="1148" alt="Your Alt" src="public/images/all categories.png">
+<img width="1148" alt="Your Alt" src="public/images/category details.png">
+<img width="1148" alt="Your Alt" src="public/images/all rewards.png">
+<img width="1148" alt="Your Alt" src="public/images/reward details.png">
 
 
 ## Contributors
