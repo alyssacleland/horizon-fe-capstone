@@ -41,13 +41,14 @@ export default function TaskDetailsPage({ params }) {
   // get the user object from firebase and set it in state any time the taskObj changes.
   // needed to add taskObj as a dependency because a task's complete button only worked the first time it was clicked because the user object (and so tokens) was not being updated in state after updating in firebase. needed to get the user object from firebase and set it in state any time the taskObj changes to be able to prevent undefined userCurrentTokens and userLifetimeTokens to complete task multiple times.
   // over in all tasks page, completing task triggers a change on the taskObj's which trigger's this useEffect to run (its' depenency array is taskCard)
-  useEffect(() => {
-    if (user && taskDetails.firebaseKey) {
-      getUser(user.uid).then((data) => {
-        setUserObj(data);
-      });
-    }
-  }, [taskObj]);
+
+  // useEffect(() => {
+  //   if (taskDetails.firebaseKey) {
+  //     getUser(user.uid).then((data) => {
+  //       setUserObj(data);
+  //     });
+  //   }
+  // }, [taskObj]);
 
   // delete and route back to all tasks page
   const deleteThisTask = () => {
@@ -64,39 +65,39 @@ export default function TaskDetailsPage({ params }) {
     getTaskDetails(firebaseKey).then((data) => setTaskDetails(data));
   };
 
-  // // get user object and tasks on mount
-  // useEffect(() => {
-  //   getUserObjAndTasks();
-  // }, []);
+  // get user object on mount and any time taskObj changes
+  useEffect(() => {
+    getUser(user.uid).then((data) => setUserObj(data));
+  }, [taskObj]);
 
   const incrementUserTokens = async () => {
     if (loading) return; // Prevent multiple clicks before previous update
 
     setLoading(true); // Set loading state to true before updating
 
+    // fetch fresh user data
+    const freshUserObj = await getUser(user.uid);
+
     // get the task's token value via taskObj.token_value
     const taskTokenValue = Number(taskDetails.token_value);
-
-    // get the user object from firebase, this is done in the useEffect above
-
     // define user's current token count
     const userCurrentTokens = Number(userObj[0]?.current_tokens);
-
     // define user's lifetime token count
     const userLifetimeTokens = Number(userObj[0]?.lifetime_tokens);
 
     // add taskObj.token_value to the user's token counts (current and lifetime)
     const updatedUserCurrentTokens = userCurrentTokens + taskTokenValue;
+    console.log('updatedUserCurrentTokens:', updatedUserCurrentTokens);
     const updatedUserLifetimeTokens = userLifetimeTokens + taskTokenValue;
+    console.log('updatedUserLifetimeTokens:', updatedUserLifetimeTokens);
 
     // get the task's completions
     const { completions } = taskDetails;
-
     // +1 to task's completions
     const updatedCompletions = completions + 1;
 
     // update user payload with updated tokens
-    const userPayload = { ...userObj[0], current_tokens: updatedUserCurrentTokens, lifetime_tokens: updatedUserLifetimeTokens };
+    const userPayload = { ...freshUserObj[0], current_tokens: updatedUserCurrentTokens, lifetime_tokens: updatedUserLifetimeTokens };
 
     setUserObj(userPayload);
 
@@ -115,7 +116,7 @@ export default function TaskDetailsPage({ params }) {
     });
 
     // update the task object in firebase
-    updateTask(taskPayload).then(() => {
+    await updateTask(taskPayload).then(() => {
       setTaskObj(taskPayload);
       getUserObjAndTasks();
       setLoading(false); // Reset loading state after the update
