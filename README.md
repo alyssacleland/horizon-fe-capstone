@@ -26,8 +26,7 @@ Horizon is designed for individuals who want to improve their productivity and s
 
 
 ## Video Walkthrough of APP NAME 
-- [Quick MVP Features Video (no sound)](https://www.loom.com/share/b7b15734a92b43eb9f78e4bbfeb2ff78?sid=55df995e-100c-4a25-8831-37c4bced89a7)
-- [Loom Video for MVP Approval (I talk through features and and present artifacts)](https://www.loom.com/share/281839f5d8284534b1a0eddc6abdfe45?sid=5c9d6678-92bc-4114-a29f-c48819e66a31)
+- [Short Walkthrough](https://www.loom.com/share/1724c69f08c64af190c11c9db392e85e?sid=0abf53f0-19b9-442a-8c7d-78b9b2aca265)
 
 
 ## Relevant Links
