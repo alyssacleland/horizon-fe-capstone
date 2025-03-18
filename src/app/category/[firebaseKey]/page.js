@@ -29,7 +29,6 @@ export default function CategoryDetailsPage({ params }) {
 
   // function to get all tasks
   const getAllTheTasks = () => {
-    setLoading(true);
     viewCategoryDetails(firebaseKey).then((data) => {
       setCategoryDetails(data);
       setLoading(false);
@@ -39,7 +38,6 @@ export default function CategoryDetailsPage({ params }) {
   // function to refresh user object and tasks.
   // refreshing tasks triggers a change on the taskObj's so that useEffect in TaskCard will re-render (its' depenency array is taskCard)
   const getUserObjAndDetails = () => {
-    setLoading(true);
     Promise.all([getUser(user.uid), viewCategoryDetails(firebaseKey)]).then(([userData, categoryData]) => {
       setUserObj(userData);
       setCategoryDetails(categoryData);
@@ -53,8 +51,6 @@ export default function CategoryDetailsPage({ params }) {
   }, []);
 
   const tasksArray = categoryDetails.tasks || []; // if categoryDetails.tasks is undefined, set it to an empty array
-
-  console.log(categoryDetails);
 
   if (loading) return <LoadingComponent />;
 
