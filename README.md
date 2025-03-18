@@ -1,12 +1,12 @@
 # My Horizon  [![Netlify Status][![Netlify Status](https://api.netlify.com/api/v1/badges/bed0c889-6935-40f2-99d7-e41095790b89/deploy-status)](https://app.netlify.com/sites/myhorizon/deploys)]
 
 <!-- description -->
-Horizon is a productivity app that helps users organize daily tasks into categories while staying motivated through a reward system.
+Horizon is a productivity app that motivates users to organize and complete tasks. Earn tokens by completing tasks and spend them on custom rewards. 
 
 [View App](https://myhorizon.netlify.app/)
 
 ## About the User 
-Horizon is designed for individuals who want to improve their productivity and stay organized. The app is suitable for users of all ages who need a simple and effective way to manage their tasks and stay motivated.
+Horizon is designed for individuals who need an extra boost to tackle tasks they lack intrinsic motivation for. Whether the tasks are personal or work-related, users can stay motivated by tracking their progress and rewarding themselves for completing them.
 
 ## Features 
 
